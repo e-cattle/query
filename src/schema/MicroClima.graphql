@@ -1,0 +1,77 @@
+scalar Datetime
+
+type AirTemperature {
+  _id: ID!
+  value: Int!
+  date: Datetime
+  resource: String
+  dataStorage: String
+  syncedAt: String
+}
+
+type RelativeHumidity {
+  _id: ID!
+  value: Int!
+  date: String
+  resource: String
+  dataStorage: String
+  syncedAt: String
+}
+
+type Precipitation {
+  _id: ID!
+  value: Int!
+  date: String
+  resource: String
+  dataStorage: String
+  syncedAt: String
+}
+
+enum SensorOrderByInput {
+  value_ASC
+  value_DESC
+  date_ASC
+  date_DESC
+  resource_ASC
+  resource_DESC
+}
+
+input SensorWhereInput {
+  _idEq: ID
+  _idNe: ID
+  _idIn: [ID!]
+  _idNin: [ID!]
+  valueEq: Int
+  valueNe: Int
+  valueIn: [Int!]
+  valueNin: [Int!]
+  valueLt: Int
+  valueLte: Int
+  valueGt: Int
+  valueGte: Int
+  dateEq: Datetime
+  dateNe: Datetime
+  dateIn: [Datetime!]
+  dateNin: [Datetime!]
+  dateLt: Datetime
+  dateLte: Datetime
+  dateGt: Datetime
+  dateGte: Datetime
+  resourceEq: String
+  resourceNe: String
+  resourceIn: [String!]
+  resourceNin: [String!]
+  resourceRegex: String
+  resourceOptions: String
+  dataStorageEq: Datetime
+  dataStorageNe: Datetime
+  dataStorageIn: [Datetime!]
+  dataStorageNin: [Datetime!]
+  dataStorageLt: Datetime
+  dataStorageLte: Datetime
+  dataStorageGt: Datetime
+  dataStorageGte: Datetime
+  AND: [SensorWhereInput!]
+  OR: [SensorWhereInput!]
+  NOR: [SensorWhereInput!]
+}

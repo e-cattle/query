@@ -1,0 +1,2 @@
+#import * from 'MicroClima.graphql'
+#import Query from 'Query.graphql'

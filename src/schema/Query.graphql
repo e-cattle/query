@@ -1,0 +1,14 @@
+type Query {
+  Precipitation: [Precipitation]
+  AirTemperatures(
+    skip: Int
+    limit: Int
+    where: SensorWhereInput
+  ): [AirTemperature!]!
+
+  RelativeHumidities(
+    skip: Int
+    limit: Int
+    where: SensorWhereInput
+  ): [RelativeHumidity!]!
+}
