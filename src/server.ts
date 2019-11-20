@@ -1,3 +1,4 @@
+require('dotenv').config()
 import { resolve } from 'path'
 import { GraphQLServer } from 'graphql-yoga'
 import { context } from './config'

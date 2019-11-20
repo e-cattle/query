@@ -17,6 +17,7 @@ const pagesAndSort = <TDoc extends Document>(
 ): DocumentQuery<TDoc[], TDoc> => {
   // const { skip = 0, limit = 10, orderBy = [] } = args
   const { skip = 0, limit = 10 } = args
+
   return query.skip(skip).limit(limit <= 20 ? limit : 20)
   // .sort(orderBy.join(' '))
 }
@@ -47,43 +48,62 @@ const operators = [
 const idFields = ['_id']
 
 const sensorConditions = (
-  where: Record<string, any> = {},
+  query: Record<string, any> = {},
 ): Record<string, any> =>
-  Object.keys(where).reduce((conditions, whereKey) => {
-    if (idFields.some(idField => whereKey.includes(idField))) {
-      const ids: string[] = Array.isArray(where[whereKey])
-        ? where[whereKey]
-        : [where[whereKey]]
+  Object.keys(query).reduce((conditions, queryKey) => {
+    if (idFields.some(idField => queryKey.includes(idField))) {
+      const ids: string[] = Array.isArray(query[queryKey])
+        ? query[queryKey]
+        : [query[queryKey]]
       if (ids.some(id => !isMongoId(id))) {
         throw new CustomError(
-          `Invalid ID value for condition '${whereKey}'!`,
+          `Invalid ID value for condition '${queryKey}'!`,
           'INVALID_ID_ERROR',
         )
       }
     }
 
     const operator = operators.find(({ name }) =>
-      new RegExp(`${name}$`).test(whereKey),
+      new RegExp(`${name}$`).test(queryKey),
     )
     const fieldName = operator
-      ? whereKey.replace(operator.name, '') // resource
-      : '$' + whereKey.toLowerCase() // $or
+      ? queryKey.replace(operator.name, '') // resource
+      : '$' + queryKey.toLowerCase() // $or
     const fieldValue = operator
       ? {
           ...conditions[fieldName],
-          [operator.op]: where[whereKey],
+          [operator.op]: query[queryKey],
         }
       : // Tratando condicoes OR, NOR, AND - Novo Array
-        where[whereKey].map(sensorConditions)
-
+        query[queryKey].map(sensorConditions)
     return {
       ...conditions,
       [fieldName]: fieldValue,
     }
   }, {})
 
+const sensorPeriod = (
+  period: Record<string, any> = {},
+): Record<string, any> => {
+  if (period['start'] && period['end']) {
+    const periodRequest = {
+      AND: [
+        {
+          dateGt: period['start'],
+          dateLt: period['end'],
+        },
+      ],
+    }
+    const periodResult = sensorConditions(periodRequest)
+    // console.log('start ', JSON.stringify(period['start'], null, 4))
+    return periodResult
+  }
+  return {}
+}
+
 export {
   sensorConditions,
+  sensorPeriod,
   isMongoId,
   // issueToken,
   pagesAndSort,

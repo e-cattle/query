@@ -5,7 +5,7 @@ type AirTemperature {
   value: Int!
   date: Datetime
   resource: String
-  dataStorage: String
+  storaged: Datetime
   syncedAt: String
 }
 
@@ -14,17 +14,22 @@ type RelativeHumidity {
   value: Int!
   date: String
   resource: String
-  dataStorage: String
+  storaged: Datetime
   syncedAt: String
 }
 
 type Precipitation {
   _id: ID!
   value: Int!
-  date: String
+  date: Datetime
   resource: String
-  dataStorage: String
+  dataStorage: Datetime
   syncedAt: String
+}
+
+input SensorPeriod {
+  start: Datetime
+  end: Datetime
 }
 
 enum SensorOrderByInput {
@@ -63,14 +68,14 @@ input SensorWhereInput {
   resourceNin: [String!]
   resourceRegex: String
   resourceOptions: String
-  dataStorageEq: Datetime
-  dataStorageNe: Datetime
-  dataStorageIn: [Datetime!]
-  dataStorageNin: [Datetime!]
-  dataStorageLt: Datetime
-  dataStorageLte: Datetime
-  dataStorageGt: Datetime
-  dataStorageGte: Datetime
+  storageEq: Datetime
+  storageNe: Datetime
+  storageIn: [Datetime!]
+  storageNin: [Datetime!]
+  storageLt: Datetime
+  storageLte: Datetime
+  storageGt: Datetime
+  storageGte: Datetime
   AND: [SensorWhereInput!]
   OR: [SensorWhereInput!]
   NOR: [SensorWhereInput!]
