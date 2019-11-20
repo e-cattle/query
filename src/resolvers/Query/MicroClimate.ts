@@ -1,5 +1,5 @@
-import { Resolver, PagesAndOrderByArgs } from '../types'
-import { sensorConditions, pagesAndSort, sensorPeriod } from '../utils'
+import { Resolver, PagesAndOrderByArgs } from '../../types'
+import { sensorConditions, pagesAndSort, sensorPeriod } from '../../utils'
 
 const AirTemperatures: Resolver<PagesAndOrderByArgs> = (_, args, { db }) => {
   const { AirTemperature } = db

@@ -32,7 +32,6 @@ const airTemperature = new Schema(
   { collection: 'type-air-temperature' },
 )
 
-// module.exports = model('type-air-temperature', airTemperature)
 export default model<AirTemperatureDocument>(
   'type-air-temperature',
   airTemperature,
