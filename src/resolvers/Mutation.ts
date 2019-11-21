@@ -30,8 +30,7 @@ const signin: Resolver<ApplicationSignInArgs> = async (_, args, { db }) => {
 
   const app = await Application.findOne({ email })
 
-  console.log('app.email', app.email)
-  if (!app.enable) {
+  if (!app || !app.enable) {
     throw error
   }
   const { _id: sub, name } = app
