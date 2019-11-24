@@ -1,0 +1,35 @@
+name: bigboxx-query
+base: core18
+version: git
+summary: Query module API of IoT middleware from e-Cattle platform for livestock farms
+description: |
+  e-Cattle BigBoxx is a middleware to receive, rank, segment, persist and provide sensory data
+  for IoT applications in livetstock farms. This module, named Query, has the role to providing
+  sensor data.
+
+grade: devel # must be 'stable' to release inindexto candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+environment:
+  SNAPCRAFT_ENABLE_DEVELOPER_DEBUG: 'yes'
+
+apps:
+  node:
+    command: env SNAP_USER_DATA=$SNAP_COMMON $SNAP/node_modules/sucrase/bin/sucrase-node $SNAP/src/index.ts
+    plugs: [home, network, network-bind, tokens]
+    daemon: simple
+    restart-condition: always
+
+plugs:
+  tokens:
+    content: tokens
+    default-provider: bigboxx-kernel
+    interface: content
+    target: $SNAP_COMMON
+
+parts:
+  query:
+    source: .
+    plugin: nodejs
+    nodejs-version: 10.16.3
+    nodejs-package-manager: npm

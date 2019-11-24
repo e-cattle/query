@@ -15,7 +15,7 @@ const signup: Resolver<ApplicationSignUpArgs> = async (_, args, { db }) => {
   }).save()
 
   const { _id: sub, name } = application
-  const token = sign({ sub, name }, process.env.JWT_SECRET)
+  const token = sign({ sub, name }, process.env.APP_PK)
 
   return { token, application }
 }
@@ -34,7 +34,7 @@ const signin: Resolver<ApplicationSignInArgs> = async (_, args, { db }) => {
     throw error
   }
   const { _id: sub, name } = app
-  const token = sign({ sub, name }, process.env.JWT_SECRET)
+  const token = sign({ sub, name }, process.env.APP_PK)
 
   return { token, app }
 }

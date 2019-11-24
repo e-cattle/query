@@ -1,8 +1,8 @@
 {
-  "name": "api",
+  "name": "ecattle-bigboxx-query",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "e-Cattle BigBoxx: Query Module",
+  "main": "srv/index.ts",
   "scripts": {
     "dev": "nodemon src/index.ts"
   },
@@ -26,14 +26,21 @@
     "eslint-plugin-standard": "^4.0.1",
     "nodemon": "^1.19.4",
     "prettier": "^1.18.2",
-    "sucrase": "^3.10.1",
     "typescript": "^3.6.4"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "aws-lambda": "^0.1.2",
     "dotenv": "^8.2.0",
+    "graphql": "^0.13.2",
+    "graphql-import": "^0.7.1",
+    "graphql-middleware": "^4.0.2",
+    "graphql-tools": "^4.0.6",
+    "graphql-upload": "^8.1.0",
     "graphql-yoga": "^1.18.3",
+    "http": "0.0.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.7.0"
+    "mongoose": "^5.7.0",
+    "subscriptions-transport-ws": "^0.9.16",
+    "sucrase": "^3.10.1"
   }
 }
