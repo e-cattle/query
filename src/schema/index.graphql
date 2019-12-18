@@ -1,3 +1,3 @@
 #import * from 'Application.graphql'
-#import * from 'MicroClimate.graphql'
+#import * from 'Micro-Climate.graphql'
 #import Query from 'Query.graphql'

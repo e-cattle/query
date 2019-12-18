@@ -37,6 +37,7 @@
     "graphql": "^0.13.2",
     "graphql-extensions": "0.0.10",
     "graphql-subscriptions": "^0.5.8",
+    "graphql-tools": "^4.0.6",
     "graphql-yoga": "^1.18.3",
     "http": "0.0.0",
     "jsonwebtoken": "^8.5.1",
