@@ -11,6 +11,12 @@ const applicationSchema = new Schema({
     type: String,
     required: true,
     trim: true,
+    unique: true,    
+  },
+  device: {
+    type: String,
+    required: true,
+    trim: true,
   },
   user: {
     type: String,
@@ -21,11 +27,14 @@ const applicationSchema = new Schema({
     type: String,
     required: true,
     trim: true,
-    unique: true,
   },
   picture: {
     type: String,
     trim: true,
   },
-})
+},
+{
+  timestamps: true,
+},
+)
 export default model<ApplicationDocument>('Application', applicationSchema)

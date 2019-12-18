@@ -8,9 +8,6 @@ import { CustomError } from './errors'
 
 const isMongoId = (value: string): boolean => Types.ObjectId.isValid(value)
 
-// const issueToken = (payload: TokenPayload, options?: SignOptions): string =>
-//   sign(payload, process.env.JWT_SECRET, { expiresIn: '2h', ...options })
-
 const pagesAndSort = <TDoc extends Document>(
   query: DocumentQuery<TDoc[], TDoc>,
   args: PagesAndOrderByArgs,

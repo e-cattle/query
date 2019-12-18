@@ -2,24 +2,8 @@ type Application {
   _id: ID!
   enable: Boolean!
   name: String!
+  device: String!
   user: String!
   email: String!
   picture: String!
-}
-
-input ApplicationSignInInput {
-  name: String
-  email: String
-}
-
-input ApplicationSignUpInput {
-  name: String!
-  user: String!
-  email: String!
-  picture: String
-}
-
-type AuthPayload {
-  token: String!
-  application: Application!
 }

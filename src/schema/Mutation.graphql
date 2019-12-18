@@ -1,4 +1,0 @@
-type Mutation {
-  signup(data: ApplicationSignUpInput!): AuthPayload!
-  signin(data: ApplicationSignInInput!): AuthPayload!
-}

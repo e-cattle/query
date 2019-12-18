@@ -12,20 +12,3 @@ export interface Application {
 export interface ApplicationDocument extends Application, Document {
   _id: Types.ObjectId
 }
-
-interface ApplicationSignInInput {
-  name: string
-  email: string
-}
-
-export interface ApplicationSignUpArgs {
-  data: ApplicationSignInInput & { name: string }
-}
-
-export interface ApplicationSignInArgs {
-  data: ApplicationSignInInput
-}
-
-export interface AuthApplication {
-  _id: Types.ObjectId
-}

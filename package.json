@@ -29,18 +29,18 @@
     "typescript": "^3.6.4"
   },
   "dependencies": {
+    "apollo-cache-control": "^0.1.1",
+    "apollo-server-core": "^1.4.0",
+    "apollo-tracing": "^0.1.4",
     "aws-lambda": "^0.1.2",
     "dotenv": "^8.2.0",
     "graphql": "^0.13.2",
-    "graphql-import": "^0.7.1",
-    "graphql-middleware": "^4.0.2",
-    "graphql-tools": "^4.0.6",
-    "graphql-upload": "^8.1.0",
+    "graphql-extensions": "0.0.10",
+    "graphql-subscriptions": "^0.5.8",
     "graphql-yoga": "^1.18.3",
     "http": "0.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.0",
-    "subscriptions-transport-ws": "^0.9.16",
     "sucrase": "^3.10.1"
   }
 }

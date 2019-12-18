@@ -5,12 +5,12 @@ type Query {
     limit: Int
     query: SensorWhereInput
     period: SensorPeriod
-  ): [AirTemperature!]!
+  ): [AirTemperature!]! @auth
 
   RelativeHumidities(
     skip: Int
     limit: Int
     query: SensorWhereInput
     period: SensorPeriod
-  ): [RelativeHumidity!]!
+  ): [RelativeHumidity!]! @auth
 }

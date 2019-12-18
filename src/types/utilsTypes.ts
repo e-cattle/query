@@ -13,10 +13,11 @@ import { Models } from '.'
 //   extensions?: Record<string, any>
 // }
 
-// export interface TokenPayload {
-//   sub: Types.ObjectId
-//   role: UserRole
-// }
+export interface TokenPayload {
+  date: string
+  id: Types.ObjectId
+  name: string
+}
 
 export interface PagesAndOrderByArgs {
   skip: number

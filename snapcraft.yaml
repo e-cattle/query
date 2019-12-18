@@ -31,5 +31,5 @@ parts:
   query:
     source: .
     plugin: nodejs
-    nodejs-version: 10.16.3
-    nodejs-package-manager: npm
+    nodejs-version: 12.13.1
+    # nodejs-package-manager: npm
