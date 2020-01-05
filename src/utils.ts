@@ -1,7 +1,5 @@
 import { Document, DocumentQuery, Types } from 'mongoose'
-import {
-  PagesAndOrderByArgs,
-} from './types'
+import { PagesAndOrderByArgs } from './types'
 import { CustomError } from './errors'
 
 const isMongoId = (value: string): boolean => Types.ObjectId.isValid(value)
@@ -85,15 +83,14 @@ const sensorPeriod = (
 const whereConditions = (
   ids: Record<string, any> = {},
 ): Record<string, any> => {
-
   if (ids) {
     var str = JSON.stringify(ids)
     str = str.replace(/_id/g, 'device')
     ids = JSON.parse(str)
     const localRequest = {
-      $or: ids
+      $or: ids,
     }
-    return  localRequest
+    return localRequest
   }
   return {}
 }

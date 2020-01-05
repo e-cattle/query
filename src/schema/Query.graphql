@@ -1,7 +1,9 @@
 type Query {
+  # General
   Devices: [Device]
   device(_id: ID!): Device!
-  Precipitation: [Precipitation]
+
+  # MicroClimate
   AirTemperatures(
     skip: Int
     limit: Int
@@ -10,6 +12,8 @@ type Query {
     where: SensorLocal
   ): [AirTemperature!]! @auth
 
+  Precipitation: [Precipitation]
+
   RelativeHumidities(
     skip: Int
     limit: Int
@@ -17,4 +21,13 @@ type Query {
     period: SensorPeriod
     where: SensorLocal
   ): [RelativeHumidity!]! @auth
+
+  # Physiological
+  AnimalWeights(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+  ): [AnimalWeight!]! @auth
 }

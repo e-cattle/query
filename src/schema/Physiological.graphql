@@ -1,0 +1,12 @@
+directive @auth on FIELD_DEFINITION
+scalar Datetime
+
+type AnimalWeight {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  storaged: Datetime
+  syncedAt: String
+}

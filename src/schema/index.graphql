@@ -1,5 +1,6 @@
 #import * from 'Application.graphql'
 #import * from 'Device.graphql'
 #import * from 'General.graphql'
-#import * from 'Micro-Climate.graphql'
+#import * from 'MicroClimate.graphql'
+#import * from 'Physiological.graphql'
 #import Query from 'Query.graphql'

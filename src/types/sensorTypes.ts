@@ -10,6 +10,7 @@ export interface Sensor {
   storaged: string
 }
 
+// MicroClimate
 export interface AirTemperatureDocument extends Sensor, Document {
   _id: Types.ObjectId
 }
@@ -17,3 +18,12 @@ export interface AirTemperatureDocument extends Sensor, Document {
 export interface RelativeHumidityDocument extends Sensor, Document {
   _id: Types.ObjectId
 }
+
+// Physiological
+export interface AnimalWeightDocument extends Sensor, Document {
+  _id: Types.ObjectId
+}
+
+// Behavioral
+
+// Contextual
