@@ -24,4 +24,5 @@ export interface PagesAndOrderByArgs {
   limit: number
   query: Record<string, any>
   period: Record<string, any>
+  where: Record<string, any>
 }

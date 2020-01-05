@@ -1,0 +1,21 @@
+scalar Datetime
+
+type Device {
+  _id: ID!
+  enable: Boolean
+  name: String
+  description: String
+  local: String
+  branch: String
+  mac: String
+  version: Int
+  sensors: Sensor!
+}
+
+type Sensor {
+  _id: ID!
+  type: String
+  name: String
+  description: String
+  label: String
+}

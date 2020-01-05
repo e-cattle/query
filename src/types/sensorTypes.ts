@@ -1,8 +1,9 @@
 import { Document, Types } from 'mongoose'
+import { Device } from './deviceTypes'
 
 export interface Sensor {
   _id: Types.ObjectId
-  device: Types.ObjectId
+  device: Device | Types.ObjectId
   value: number
   date: string
   resource: string

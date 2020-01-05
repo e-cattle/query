@@ -1,5 +1,6 @@
 export * from './applicationTypes'
 export * from './contextTypes'
+export * from './deviceTypes'
 export * from './modelsTypes'
 export * from './resolverTypes'
 export * from './sensorTypes'

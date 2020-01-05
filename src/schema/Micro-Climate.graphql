@@ -3,6 +3,7 @@ scalar Datetime
 
 type AirTemperature {
   _id: ID!
+  device: Device!
   value: Int!
   date: Datetime
   resource: String
@@ -12,6 +13,7 @@ type AirTemperature {
 
 type RelativeHumidity {
   _id: ID!
+  device: Device!
   value: Int!
   date: String
   resource: String
@@ -21,6 +23,7 @@ type RelativeHumidity {
 
 type Precipitation {
   _id: ID!
+  device: Device!
   value: Int!
   date: Datetime
   resource: String
@@ -28,56 +31,3 @@ type Precipitation {
   syncedAt: String
 }
 
-input SensorPeriod {
-  start: Datetime
-  end: Datetime
-}
-
-enum SensorOrderByInput {
-  value_ASC
-  value_DESC
-  date_ASC
-  date_DESC
-  resource_ASC
-  resource_DESC
-}
-
-input SensorWhereInput {
-  _idEq: ID
-  _idNe: ID
-  _idIn: [ID!]
-  _idNin: [ID!]
-  valueEq: Int
-  valueNe: Int
-  valueIn: [Int!]
-  valueNin: [Int!]
-  valueLt: Int
-  valueLte: Int
-  valueGt: Int
-  valueGte: Int
-  dateEq: Datetime
-  dateNe: Datetime
-  dateIn: [Datetime!]
-  dateNin: [Datetime!]
-  dateLt: Datetime
-  dateLte: Datetime
-  dateGt: Datetime
-  dateGte: Datetime
-  resourceEq: String
-  resourceNe: String
-  resourceIn: [String!]
-  resourceNin: [String!]
-  resourceRegex: String
-  resourceOptions: String
-  storageEq: Datetime
-  storageNe: Datetime
-  storageIn: [Datetime!]
-  storageNin: [Datetime!]
-  storageLt: Datetime
-  storageLte: Datetime
-  storageGt: Datetime
-  storageGte: Datetime
-  AND: [SensorWhereInput!]
-  OR: [SensorWhereInput!]
-  NOR: [SensorWhereInput!]
-}

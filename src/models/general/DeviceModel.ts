@@ -1,8 +1,9 @@
 'use strict'
 
 import { Schema, model } from 'mongoose'
+import { DeviceDocument } from '../../types'
 
-const device = new Schema(
+const deviceSchema = new Schema(
   {
     enable: {
       type: Boolean,
@@ -59,8 +60,8 @@ const device = new Schema(
     ],
   },
   {
-    timestamps: true,
+    useNestedStrict: true,
   },
 )
 
-module.exports = model('Device', device)
+export default model<DeviceDocument>('Device', deviceSchema)

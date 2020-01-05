@@ -1,8 +1,6 @@
-import { SignOptions, sign } from 'jsonwebtoken'
 import { Document, DocumentQuery, Types } from 'mongoose'
 import {
   PagesAndOrderByArgs,
-  // TokenPayload,
 } from './types'
 import { CustomError } from './errors'
 
@@ -12,22 +10,10 @@ const pagesAndSort = <TDoc extends Document>(
   query: DocumentQuery<TDoc[], TDoc>,
   args: PagesAndOrderByArgs,
 ): DocumentQuery<TDoc[], TDoc> => {
-  // const { skip = 0, limit = 10, orderBy = [] } = args
   const { skip = 0, limit = 10 } = args
 
   return query.skip(skip).limit(limit <= 20 ? limit : 20)
-  // .sort(orderBy.join(' '))
 }
-
-// const sensorOrderByResolver = (fields: string[]): Record<string, string> =>
-//   fields.reduce(
-//     (resolvers, field) => ({
-//       ...resolvers,
-//       [`${field}_ASC`]: field,
-//       [`${field}_DESC`]: `-${field}`,
-//     }),
-//     {},
-//   )
 
 const operators = [
   { name: 'Eq', op: '$eq' },
@@ -92,16 +78,30 @@ const sensorPeriod = (
       ],
     }
     const periodResult = sensorConditions(periodRequest)
-    // console.log('start ', JSON.stringify(period['start'], null, 4))
     return periodResult
+  }
+  return {}
+}
+const whereConditions = (
+  ids: Record<string, any> = {},
+): Record<string, any> => {
+
+  if (ids) {
+    var str = JSON.stringify(ids)
+    str = str.replace(/_id/g, 'device')
+    ids = JSON.parse(str)
+    const localRequest = {
+      $or: ids
+    }
+    return  localRequest
   }
   return {}
 }
 
 export {
   sensorConditions,
+  whereConditions,
   sensorPeriod,
   isMongoId,
-  // issueToken,
   pagesAndSort,
 }

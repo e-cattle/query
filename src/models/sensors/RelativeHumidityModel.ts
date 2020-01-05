@@ -1,8 +1,7 @@
-'use strict'
 import { Schema, model } from 'mongoose'
-import { RelativeHumidityDocument } from '../types'
+import { RelativeHumidityDocument } from '../../types'
 
-const relativeHumidity = new Schema(
+const relativeHumiditySchema = new Schema(
   {
     device: {
       type: Schema.Types.ObjectId,
@@ -29,11 +28,5 @@ const relativeHumidity = new Schema(
       default: Date.now(),
     },
   },
-  { collection: 'type-relative-humidity' },
 )
-
-// module.exports = model('type-relative-humidity', relativeHumidity)
-export default model<RelativeHumidityDocument>(
-  'type-relative-humidity',
-  relativeHumidity,
-)
+export default model<RelativeHumidityDocument>('RelativeHumidity', relativeHumiditySchema, 'type-relative-humidity')

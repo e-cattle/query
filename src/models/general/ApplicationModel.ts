@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose'
-import { ApplicationDocument } from '../types'
+import { ApplicationDocument } from '../../types'
 
 const applicationSchema = new Schema({
   enable: {

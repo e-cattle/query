@@ -1,8 +1,8 @@
 'use strict'
 import { Schema, model } from 'mongoose'
-import { AirTemperatureDocument } from '../types'
+import { AirTemperatureDocument } from '../../types'
 
-const airTemperature = new Schema(
+const airTemperatureSchema = new Schema(
   {
     device: {
       type: Schema.Types.ObjectId,
@@ -29,10 +29,5 @@ const airTemperature = new Schema(
       default: Date.now(),
     },
   },
-  { collection: 'type-air-temperature' },
 )
-
-export default model<AirTemperatureDocument>(
-  'type-air-temperature',
-  airTemperature,
-)
+export default model<AirTemperatureDocument>('AirTemperature', airTemperatureSchema, 'type-air-temperature')

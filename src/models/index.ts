@@ -14,15 +14,17 @@ const connect = (): Promise<typeof mongoose> =>
     useUnifiedTopology: true,
   })
 const models: Models = Object.create({})
-readdirSync(__dirname)
-  .filter(fileName => !fileName.includes('index'))
-  .forEach(fileName => {
-    const model = require(resolve(__dirname, fileName)).default
-    const modelName = fileName
-      .split('.')
-      .shift()
-      .replace('Model', '')
-    models[modelName] = model
-  })
 
+const directories = [ __dirname + '/general', __dirname + '/sensors' ]
+directories.forEach(dir =>{
+  readdirSync(dir)
+    .forEach(fileName => {
+      const model = require(resolve(dir, fileName)).default
+      const modelName = fileName
+        .split('.')
+        .shift()
+        .replace('Model', '')
+      models[modelName] = model
+    })
+})
 export { connect, models }
