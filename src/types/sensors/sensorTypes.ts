@@ -1,5 +1,5 @@
 import { Document, Types } from 'mongoose'
-import { Device } from './deviceTypes'
+import { Device } from '../general/deviceTypes'
 
 export interface Sensor {
   _id: Types.ObjectId

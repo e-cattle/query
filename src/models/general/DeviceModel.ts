@@ -9,6 +9,10 @@ const deviceSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    delete: {
+      type: Boolean,
+      default: false,
+    },
     name: {
       type: String,
       required: true,
@@ -58,6 +62,14 @@ const deviceSchema = new Schema(
         },
       },
     ],
+    created: {
+      type: Date,
+      default: Date.now(),
+    },
+    changed: {
+      type: Date,
+      default: Date.now(),
+    },
   },
   {
     useNestedStrict: true,

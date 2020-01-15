@@ -4,6 +4,7 @@ import {
   AnimalWeightDocument,
   ApplicationDocument,
   DeviceDocument,
+  GeographicCoordinateDocument,
   RelativeHumidityDocument,
 } from '.'
 
@@ -12,5 +13,6 @@ export interface Models {
   AnimalWeight: Model<AnimalWeightDocument>
   Application: Model<ApplicationDocument>
   Device: Model<DeviceDocument>
+  GeographicCoordinate: Model<GeographicCoordinateDocument>
   RelativeHumidity: Model<RelativeHumidityDocument>
 }

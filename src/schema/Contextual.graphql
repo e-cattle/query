@@ -1,0 +1,19 @@
+directive @auth on FIELD_DEFINITION
+scalar Datetime
+
+type GeographicCoordinate {
+  _id: ID!
+  device: Device!
+  value: [GeographicCoordinateValue!]!
+  date: Datetime
+  resource: String
+  storaged: Datetime
+  syncedAt: String
+}
+
+type GeographicCoordinateValue {
+  _id: ID!
+  altitude: Int
+  latitude: Int
+  longitude: Int
+}

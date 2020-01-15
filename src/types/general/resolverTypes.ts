@@ -1,5 +1,5 @@
 import { GraphQLFieldResolver } from 'graphql'
-import { Context } from '.'
+import { Context } from '..'
 
 export type Resolver<TArgs, TSource = {}> = GraphQLFieldResolver<
   TSource,

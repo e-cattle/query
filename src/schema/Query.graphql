@@ -30,4 +30,13 @@ type Query {
     period: SensorPeriod
     where: SensorLocal
   ): [AnimalWeight!]! @auth
+
+  # Contextual
+  GeographicCoordinates(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+  ): [GeographicCoordinate!]! @auth
 }

@@ -1,6 +1,6 @@
 import { Types } from 'mongoose'
 // import { Models, UserRole } from '.'
-import { Models } from '.'
+import { Models } from '..'
 
 // export interface FindDocumentOptions {
 //   model: keyof Models
