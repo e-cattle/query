@@ -35,8 +35,9 @@ type Query {
   GeographicCoordinates(
     skip: Int
     limit: Int
-    query: SensorWhereInput
+    query: GeographicCoordinateWhereInput
     period: SensorPeriod
     where: SensorLocal
+    value: GeographicCoordinateValueWhereInput
   ): [GeographicCoordinate!]! @auth
 }

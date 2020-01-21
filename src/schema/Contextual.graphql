@@ -13,7 +13,70 @@ type GeographicCoordinate {
 
 type GeographicCoordinateValue {
   _id: ID!
-  altitude: Int
-  latitude: Int
-  longitude: Int
+  altitude: Float
+  latitude: Float
+  longitude: Float
+}
+
+input GeographicCoordinateWhereInput {
+  _idEq: ID
+  _idNe: ID
+  _idIn: [ID!]
+  _idNin: [ID!]
+  dateEq: Datetime
+  dateNe: Datetime
+  dateIn: [Datetime!]
+  dateNin: [Datetime!]
+  dateLt: Datetime
+  dateLte: Datetime
+  dateGt: Datetime
+  dateGte: Datetime
+  resourceEq: String
+  resourceNe: String
+  resourceIn: [String!]
+  resourceNin: [String!]
+  resourceRegex: String
+  resourceOptions: String
+  storageEq: Datetime
+  storageNe: Datetime
+  storageIn: [Datetime!]
+  storageNin: [Datetime!]
+  storageLt: Datetime
+  storageLte: Datetime
+  storageGt: Datetime
+  storageGte: Datetime
+  AND: [SensorWhereInput!]
+  OR: [SensorWhereInput!]
+  NOR: [SensorWhereInput!]
+}
+
+input GeographicCoordinateValueWhereInput {
+  _idEq: ID
+  _idNe: ID
+  _idIn: [ID!]
+  _idNin: [ID!]
+  altitudeEq: Float
+  altitudeNe: Float
+  altitudeIn: [Float!]
+  altitudeNin: [Float!]
+  altitudeLt: Float
+  altitudeLte: Float
+  altitudeGt: Float
+  altitudeGte: Float
+  latitudeEq: Float
+  latitudeNe: Float
+  latitudeIn: [Float!]
+  latitudeNin: [Float!]
+  latitudeLt: Float
+  latitudeLte: Float
+  latitudeGt: Float
+  latitudeGte: Float
+  longitudeEq: Float
+  longitudeNe: Float
+  longitudeIn: [Float!]
+  longitudeNin: [Float!]
+  longitudeLt: Float
+  longitudeLte: Float
+  longitudeGt: Float
+  longitudeGte: Float
 }

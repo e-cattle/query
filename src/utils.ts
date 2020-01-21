@@ -32,6 +32,7 @@ const sensorConditions = (
   query: Record<string, any> = {},
 ): Record<string, any> =>
   Object.keys(query).reduce((conditions, queryKey) => {
+    // console.log('conditions: ', JSON.stringify(conditions, null, 4))
     if (idFields.some(idField => queryKey.includes(idField))) {
       const ids: string[] = Array.isArray(query[queryKey])
         ? query[queryKey]
@@ -95,10 +96,41 @@ const whereConditions = (
   return {}
 }
 
+const sensorValue = (
+  value: Record<string, any> = {},
+): Record<string, any> => 
+  Object.keys(value).reduce((conditions, valueKey) => {
+
+    const operator = operators.find(({ name }) =>
+      new RegExp(`${name}$`).test(valueKey),
+    )
+    const fieldName = operator
+      ? valueKey.replace(operator.name, '') // resource
+      : '$' + valueKey.toLowerCase() // $or
+
+    const fieldNewName = fieldName
+      ? 'value.' + fieldName
+      : fieldName
+
+    // console.log('fieldNewName: ', JSON.stringify(fieldNewName, null, 4))
+    const fieldValue = operator
+      ? {
+          ...conditions[fieldNewName],
+          [operator.op]: value[valueKey],
+        }
+      : // Tratando condicoes OR, NOR, AND - Novo Array
+        value[valueKey].map(sensorConditions)
+    return {
+      ...conditions,
+      [fieldNewName]: fieldValue,
+    }
+  }, {})
+
 export {
   sensorConditions,
   whereConditions,
   sensorPeriod,
+  sensorValue,
   isMongoId,
   pagesAndSort,
 }

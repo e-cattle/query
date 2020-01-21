@@ -25,4 +25,5 @@ export interface PagesAndOrderByArgs {
   query: Record<string, any>
   period: Record<string, any>
   where: Record<string, any>
+  value: Record<string, any>
 }

@@ -4,6 +4,7 @@ import {
   pagesAndSort,
   sensorPeriod,
   whereConditions,
+  sensorValue,
 } from '../../utils'
 
 const GeographicCoordinates: Resolver<PagesAndOrderByArgs> = async (
@@ -14,6 +15,8 @@ const GeographicCoordinates: Resolver<PagesAndOrderByArgs> = async (
   const { GeographicCoordinate, Device } = db
   const conditionsQuery = sensorConditions(args.query)
   const conditionsPeriod = sensorPeriod(args.period)
+  const conditionsValue = sensorValue(args.value)
+  // console.log('conditionsValue: ', JSON.stringify(conditionsValue, null, 4))
   var whereLocal = {}
   var conditionsDevice = {}
 
@@ -26,9 +29,12 @@ const GeographicCoordinates: Resolver<PagesAndOrderByArgs> = async (
     conditionsDevice = whereConditions(devices)
   }
 
+  // return GeographicCoordinate.find({ 
+  //     "value.latitude": { $eq: 0 }
+  //   })
   return pagesAndSort(
     GeographicCoordinate.find({
-      $and: [{ $and: [conditionsQuery, conditionsPeriod] }, conditionsDevice],
+      $and: [{ $and: [conditionsQuery, conditionsPeriod, conditionsValue] }, conditionsDevice],
     }).populate('device'),
     args,
   )
