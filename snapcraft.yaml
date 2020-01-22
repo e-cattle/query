@@ -23,7 +23,6 @@ apps:
 plugs:
   tokens:
     content: tokens
-    default-provider: bigboxx-kernel
     interface: content
     target: $SNAP_COMMON
 
