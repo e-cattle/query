@@ -73,8 +73,8 @@ const sensorPeriod = (
     const periodRequest = {
       AND: [
         {
-          dateGt: moment(period['start']).startOf('day'),
-          dateLt: moment(period['end']).endOf('day'),
+          dateGte: moment(period['start']).startOf('day'),
+          dateLte: moment(period['end']).endOf('day'),
         },
       ],
     }
