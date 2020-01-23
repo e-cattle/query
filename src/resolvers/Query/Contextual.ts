@@ -1,13 +1,13 @@
-import { Resolver, PagesAndOrderByArgs } from '../../types'
+import { Resolver, FindMethodsArgs } from '../../types'
 import {
   sensorConditions,
-  pagesAndSort,
+  pagination,
   sensorPeriod,
   whereConditions,
   sensorValue,
 } from '../../utils'
 
-const GeographicCoordinates: Resolver<PagesAndOrderByArgs> = async (
+const GeographicCoordinates: Resolver<FindMethodsArgs> = async (
   _,
   args,
   { db },
@@ -32,7 +32,7 @@ const GeographicCoordinates: Resolver<PagesAndOrderByArgs> = async (
   // return GeographicCoordinate.find({ 
   //     "value.latitude": { $eq: 0 }
   //   })
-  return pagesAndSort(
+  return pagination(
     GeographicCoordinate.find({
       $and: [{ $and: [conditionsQuery, conditionsPeriod, conditionsValue] }, conditionsDevice],
     }).populate('device'),

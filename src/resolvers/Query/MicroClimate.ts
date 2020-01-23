@@ -1,12 +1,12 @@
-import { Resolver, PagesAndOrderByArgs } from '../../types'
+import { Resolver, FindMethodsArgs } from '../../types'
 import {
   sensorConditions,
-  pagesAndSort,
+  pagination,
   sensorPeriod,
   whereConditions,
 } from '../../utils'
 
-const AirTemperatures: Resolver<PagesAndOrderByArgs> = async (
+const AirTemperatures: Resolver<FindMethodsArgs> = async (
   _,
   args,
   { db },
@@ -26,7 +26,7 @@ const AirTemperatures: Resolver<PagesAndOrderByArgs> = async (
     conditionsDevice = whereConditions(devices)
   }
 
-  return pagesAndSort(
+  return pagination(
     AirTemperature.find({
       $and: [{ $and: [conditionsQuery, conditionsPeriod] }, conditionsDevice],
     }).populate('device'),
@@ -34,7 +34,7 @@ const AirTemperatures: Resolver<PagesAndOrderByArgs> = async (
   )
 }
 
-const RelativeHumidities: Resolver<PagesAndOrderByArgs> = async (
+const RelativeHumidities: Resolver<FindMethodsArgs> = async (
   _,
   args,
   { db },
@@ -54,7 +54,7 @@ const RelativeHumidities: Resolver<PagesAndOrderByArgs> = async (
     conditionsDevice = whereConditions(devices)
   }
 
-  return pagesAndSort(
+  return pagination(
     RelativeHumidity.find({
       $and: [{ $and: [conditionsQuery, conditionsPeriod] }, conditionsDevice],
     }).populate('device'),

@@ -19,7 +19,7 @@ export interface TokenPayload {
   name: string
 }
 
-export interface PagesAndOrderByArgs {
+export interface FindMethodsArgs {
   skip: number
   limit: number
   query: Record<string, any>

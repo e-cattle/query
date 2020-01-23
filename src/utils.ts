@@ -1,16 +1,18 @@
 import { Document, DocumentQuery, Types } from 'mongoose'
-import { PagesAndOrderByArgs } from './types'
+import { FindMethodsArgs } from './types'
 import { CustomError } from './errors'
+import moment from 'moment'
 
 const isMongoId = (value: string): boolean => Types.ObjectId.isValid(value)
 
-const pagesAndSort = <TDoc extends Document>(
+const pagination = <TDoc extends Document>(
   query: DocumentQuery<TDoc[], TDoc>,
-  args: PagesAndOrderByArgs,
+  args: FindMethodsArgs,
 ): DocumentQuery<TDoc[], TDoc> => {
-  const { skip = 0, limit = 10 } = args
+  const { skip, limit } = args
 
-  return query.skip(skip).limit(limit <= 20 ? limit : 20)
+  // return query.skip(skip).limit(limit <= 20 ? limit : 20)
+  return query.skip(skip).limit(limit)
 }
 
 const operators = [
@@ -71,8 +73,8 @@ const sensorPeriod = (
     const periodRequest = {
       AND: [
         {
-          dateGt: period['start'],
-          dateLt: period['end'],
+          dateGt: moment(period['start']).startOf('day'),
+          dateLt: moment(period['end']).endOf('day'),
         },
       ],
     }
@@ -132,5 +134,5 @@ export {
   sensorPeriod,
   sensorValue,
   isMongoId,
-  pagesAndSort,
+  pagination,
 }

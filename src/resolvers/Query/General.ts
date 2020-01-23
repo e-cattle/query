@@ -1,13 +1,13 @@
-import { Resolver, PagesAndOrderByArgs } from '../../types'
+import { Resolver, FindMethodsArgs } from '../../types'
 
-const Devices: Resolver<PagesAndOrderByArgs> = async (_, args, { db }) => {
+const Devices: Resolver<FindMethodsArgs> = async (_, args, { db }) => {
   const { Device } = db
 
   // console.log('devices: ', JSON.stringify(data, null, 4))
 
   return Device.find()
 
-  // return pagesAndSort(
+  // return pagination(
   //   Device.find(),
   //   args,
   // )

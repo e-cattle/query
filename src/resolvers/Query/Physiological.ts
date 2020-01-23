@@ -1,12 +1,12 @@
-import { Resolver, PagesAndOrderByArgs } from '../../types'
+import { Resolver, FindMethodsArgs } from '../../types'
 import {
   sensorConditions,
-  pagesAndSort,
+  pagination,
   sensorPeriod,
   whereConditions,
 } from '../../utils'
 
-const AnimalWeights: Resolver<PagesAndOrderByArgs> = async (
+const AnimalWeights: Resolver<FindMethodsArgs> = async (
   _,
   args,
   { db },
@@ -26,7 +26,7 @@ const AnimalWeights: Resolver<PagesAndOrderByArgs> = async (
     conditionsDevice = whereConditions(devices)
   }
 
-  return pagesAndSort(
+  return pagination(
     AnimalWeight.find({
       $and: [{ $and: [conditionsQuery, conditionsPeriod] }, conditionsDevice],
     }).populate('device'),
