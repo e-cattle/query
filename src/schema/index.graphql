@@ -1,4 +1,5 @@
 #import * from 'Application.graphql'
+#import * from 'Behavioral.graphql'
 #import * from 'Contextual.graphql'
 #import * from 'Device.graphql'
 #import * from 'General.graphql'

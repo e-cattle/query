@@ -31,6 +31,34 @@ type Query {
     where: SensorLocal
   ): [AnimalWeight!]! @auth
 
+  # Behavioral
+  Accelerometers(
+    skip: Int
+    limit: Int
+    query: AccelerometerWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: AccelerometerValueWhereInput
+  ): [Accelerometer!]! @auth
+  
+  Gyroscopes(
+    skip: Int
+    limit: Int
+    query: GyroscopeWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: GyroscopeValueWhereInput
+  ): [Gyroscope!]! @auth
+
+  Magnetometers(
+    skip: Int
+    limit: Int
+    query: MagnetometerWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: MagnetometerValueWhereInput
+  ): [Magnetometer!]! @auth
+
   # Contextual
   GeographicCoordinates(
     skip: Int

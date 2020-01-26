@@ -1,0 +1,242 @@
+directive @auth on FIELD_DEFINITION
+scalar Datetime
+
+type Accelerometer {
+  _id: ID!
+  device: Device!
+  value: [AccelerometerValue!]!
+  date: Datetime
+  resource: String
+  storaged: Datetime
+  syncedAt: String
+}
+
+type AccelerometerValue {
+  _id: ID!
+  ax: Float
+  ay: Float
+  az: Float
+}
+
+input AccelerometerWhereInput {
+  _idEq: ID
+  _idNe: ID
+  _idIn: [ID!]
+  _idNin: [ID!]
+  dateEq: Datetime
+  dateNe: Datetime
+  dateIn: [Datetime!]
+  dateNin: [Datetime!]
+  dateLt: Datetime
+  dateLte: Datetime
+  dateGt: Datetime
+  dateGte: Datetime
+  resourceEq: String
+  resourceNe: String
+  resourceIn: [String!]
+  resourceNin: [String!]
+  resourceRegex: String
+  resourceOptions: String
+  storageEq: Datetime
+  storageNe: Datetime
+  storageIn: [Datetime!]
+  storageNin: [Datetime!]
+  storageLt: Datetime
+  storageLte: Datetime
+  storageGt: Datetime
+  storageGte: Datetime
+  AND: [SensorWhereInput!]
+  OR: [SensorWhereInput!]
+  NOR: [SensorWhereInput!]
+}
+
+input AccelerometerValueWhereInput {
+  _idEq: ID
+  _idNe: ID
+  _idIn: [ID!]
+  _idNin: [ID!]
+  axEq: Float
+  axNe: Float
+  axIn: [Float!]
+  axNin: [Float!]
+  axLt: Float
+  axLte: Float
+  axGt: Float
+  axGte: Float
+  ayEq: Float
+  ayNe: Float
+  ayIn: [Float!]
+  ayNin: [Float!]
+  ayLt: Float
+  ayLte: Float
+  ayGt: Float
+  ayGte: Float
+  azEq: Float
+  azNe: Float
+  azIn: [Float!]
+  azNin: [Float!]
+  azLt: Float
+  azLte: Float
+  azGt: Float
+  azGte: Float
+}
+
+type Gyroscope {
+  _id: ID!
+  device: Device!
+  value: [GyroscopeValue!]!
+  date: Datetime
+  resource: String
+  storaged: Datetime
+  syncedAt: String
+}
+
+type GyroscopeValue {
+  _id: ID!
+  gx: Float
+  gy: Float
+  gz: Float
+}
+
+input GyroscopeWhereInput {
+  _idEq: ID
+  _idNe: ID
+  _idIn: [ID!]
+  _idNin: [ID!]
+  dateEq: Datetime
+  dateNe: Datetime
+  dateIn: [Datetime!]
+  dateNin: [Datetime!]
+  dateLt: Datetime
+  dateLte: Datetime
+  dateGt: Datetime
+  dateGte: Datetime
+  resourceEq: String
+  resourceNe: String
+  resourceIn: [String!]
+  resourceNin: [String!]
+  resourceRegex: String
+  resourceOptions: String
+  storageEq: Datetime
+  storageNe: Datetime
+  storageIn: [Datetime!]
+  storageNin: [Datetime!]
+  storageLt: Datetime
+  storageLte: Datetime
+  storageGt: Datetime
+  storageGte: Datetime
+  AND: [SensorWhereInput!]
+  OR: [SensorWhereInput!]
+  NOR: [SensorWhereInput!]
+}
+
+input GyroscopeValueWhereInput {
+  _idEq: ID
+  _idNe: ID
+  _idIn: [ID!]
+  _idNin: [ID!]
+  gxEq: Float
+  gxNe: Float
+  gxIn: [Float!]
+  gxNin: [Float!]
+  gxLt: Float
+  gxLte: Float
+  gxGt: Float
+  gxGte: Float
+  gyEq: Float
+  gyNe: Float
+  gyIn: [Float!]
+  gyNin: [Float!]
+  gyLt: Float
+  gyLte: Float
+  gyGt: Float
+  gyGte: Float
+  gzEq: Float
+  gzNe: Float
+  gzIn: [Float!]
+  gzNin: [Float!]
+  gzLt: Float
+  gzLte: Float
+  gzGt: Float
+  gzGte: Float
+}
+
+type Magnetometer {
+  _id: ID!
+  device: Device!
+  value: [MagnetometerValue!]!
+  date: Datetime
+  resource: String
+  storaged: Datetime
+  syncedAt: String
+}
+
+type MagnetometerValue {
+  _id: ID!
+  mx: Float
+  my: Float
+  mz: Float
+}
+
+input MagnetometerWhereInput {
+  _idEq: ID
+  _idNe: ID
+  _idIn: [ID!]
+  _idNin: [ID!]
+  dateEq: Datetime
+  dateNe: Datetime
+  dateIn: [Datetime!]
+  dateNin: [Datetime!]
+  dateLt: Datetime
+  dateLte: Datetime
+  dateGt: Datetime
+  dateGte: Datetime
+  resourceEq: String
+  resourceNe: String
+  resourceIn: [String!]
+  resourceNin: [String!]
+  resourceRegex: String
+  resourceOptions: String
+  storageEq: Datetime
+  storageNe: Datetime
+  storageIn: [Datetime!]
+  storageNin: [Datetime!]
+  storageLt: Datetime
+  storageLte: Datetime
+  storageGt: Datetime
+  storageGte: Datetime
+  AND: [SensorWhereInput!]
+  OR: [SensorWhereInput!]
+  NOR: [SensorWhereInput!]
+}
+
+input MagnetometerValueWhereInput {
+  _idEq: ID
+  _idNe: ID
+  _idIn: [ID!]
+  _idNin: [ID!]
+  mxEq: Float
+  mxNe: Float
+  mxIn: [Float!]
+  mxNin: [Float!]
+  mxLt: Float
+  mxLte: Float
+  mxGt: Float
+  mxGte: Float
+  myEq: Float
+  myNe: Float
+  myIn: [Float!]
+  myNin: [Float!]
+  myLt: Float
+  myLte: Float
+  myGt: Float
+  myGte: Float
+  mzEq: Float
+  mzNe: Float
+  mzIn: [Float!]
+  mzNin: [Float!]
+  mzLt: Float
+  mzLte: Float
+  mzGt: Float
+  mzGte: Float
+}

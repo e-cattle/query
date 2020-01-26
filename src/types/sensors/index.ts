@@ -1,2 +1,5 @@
+export * from './AccelerometerTypes'
 export * from './GeographicCoordinateTypes'
+export * from './GyroscopeTypes'
+export * from './MagnetometerTypes'
 export * from './sensorTypes'
