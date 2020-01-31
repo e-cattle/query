@@ -15,7 +15,7 @@ environment:
 
 apps:
   node:
-    command: env SNAP_USER_DATA=$SNAP_COMMON $SNAP/node_modules/sucrase/bin/sucrase-node $SNAP/src/index.ts
+    command: env SNAP_DATA=$SNAP_DATA $SNAP/node_modules/sucrase/bin/sucrase-node $SNAP/src/index.ts
     plugs: [home, network, network-bind, tokens]
     daemon: simple
     restart-condition: always
@@ -24,11 +24,10 @@ plugs:
   tokens:
     content: tokens
     interface: content
-    target: $SNAP_COMMON
+    target: $SNAP_DATA
 
 parts:
   query:
     source: .
     plugin: nodejs
     nodejs-version: 12.13.1
-    # nodejs-package-manager: npm

@@ -6,8 +6,8 @@ import resolvers from './resolvers'
 import { AuthDirective } from './directives/AuthDirective'
 
 const dotenv = require('dotenv')
-if (process.env.SNAP_USER_DATA) {
-  dotenv.config({ path: process.env.SNAP_USER_DATA + '/.env' })
+if (process.env.SNAP_DATA) {
+  dotenv.config({ path: process.env.SNAP_DATA + '/.env' })
 } else {
   dotenv.config()
 }
