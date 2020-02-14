@@ -32,7 +32,7 @@
     "apollo-cache-control": "^0.1.1",
     "apollo-server-core": "^1.4.0",
     "apollo-tracing": "^0.1.4",
-    "aws-lambda": "^0.1.2",
+    "aws-lambda": "^1.0.5",
     "dotenv": "^8.2.0",
     "graphql": "^0.13.2",
     "graphql-extensions": "0.0.10",
