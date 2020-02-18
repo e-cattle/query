@@ -10,3 +10,14 @@ type AnimalWeight {
   storaged: Datetime
   syncedAt: String
 }
+
+input AnimalWeightValueInput {
+  Eq: Int
+  Ne: Int
+  In: [Int!]
+  Nin: [Int!]
+  Lt: Int
+  Lte: Int
+  Gt: Int
+  Gte: Int
+}

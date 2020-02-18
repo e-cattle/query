@@ -110,9 +110,12 @@ const sensorValue = (
       ? valueKey.replace(operator.name, '') // resource
       : '$' + valueKey.toLowerCase() // $or
 
-    const fieldNewName = fieldName
+    var fieldNewName = fieldName
       ? 'value.' + fieldName
       : fieldName
+    
+    if(fieldNewName === '')
+      fieldNewName = 'value'
 
     // console.log('fieldNewName: ', JSON.stringify(fieldNewName, null, 4))
     const fieldValue = operator

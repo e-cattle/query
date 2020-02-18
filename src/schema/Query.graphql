@@ -29,6 +29,7 @@ type Query {
     query: SensorWhereInput
     period: SensorPeriod
     where: SensorLocal
+    value: AnimalWeightValueInput
   ): [AnimalWeight!]! @auth
 
   # Behavioral
