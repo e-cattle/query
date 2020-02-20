@@ -3,8 +3,8 @@ import {
   sensorConditions,
   pagination,
   sensorPeriod,
-  whereConditions,
-  sensorValue
+  sensorValue,
+  whereConditions
 } from '../../utils'
 
 const AnimalWeights: Resolver<FindMethodsArgs> = async (
@@ -14,7 +14,6 @@ const AnimalWeights: Resolver<FindMethodsArgs> = async (
 ) => {
   const { AnimalWeight, Device } = db
   const conditionsQuery = sensorConditions(args.query)
-  console.log('conditionsQuery: ', JSON.stringify(conditionsQuery, null, 4))
   const conditionsPeriod = sensorPeriod(args.period)
   const conditionsValue = sensorValue(args.value)
   // console.log('conditionsValue: ', JSON.stringify(conditionsValue, null, 4))
