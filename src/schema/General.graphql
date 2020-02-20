@@ -16,6 +16,17 @@ input SensorLocal {
   local: String
 }
 
+input SensorValueInput {
+  Eq: Int
+  Ne: Int
+  In: [Int!]
+  Nin: [Int!]
+  Lt: Int
+  Lte: Int
+  Gt: Int
+  Gte: Int
+}
+
 input SensorWhereInput {
   _idEq: ID
   _idNe: ID

@@ -11,13 +11,3 @@ type AnimalWeight {
   syncedAt: String
 }
 
-input AnimalWeightValueInput {
-  Eq: Int
-  Ne: Int
-  In: [Int!]
-  Nin: [Int!]
-  Lt: Int
-  Lte: Int
-  Gt: Int
-  Gte: Int
-}

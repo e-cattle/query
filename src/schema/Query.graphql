@@ -10,6 +10,7 @@ type Query {
     query: SensorWhereInput
     period: SensorPeriod
     where: SensorLocal
+    value: SensorValueInput
   ): [AirTemperature!]! @auth
 
   Precipitation: [Precipitation]
@@ -20,6 +21,7 @@ type Query {
     query: SensorWhereInput
     period: SensorPeriod
     where: SensorLocal
+    value: SensorValueInput
   ): [RelativeHumidity!]! @auth
 
   # Physiological
@@ -29,7 +31,7 @@ type Query {
     query: SensorWhereInput
     period: SensorPeriod
     where: SensorLocal
-    value: AnimalWeightValueInput
+    value: SensorValueInput
   ): [AnimalWeight!]! @auth
 
   # Behavioral

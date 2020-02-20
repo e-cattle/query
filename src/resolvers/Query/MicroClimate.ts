@@ -3,7 +3,8 @@ import {
   sensorConditions,
   pagination,
   sensorPeriod,
-  whereConditions,
+  sensorValue,
+  whereConditions
 } from '../../utils'
 
 const AirTemperatures: Resolver<FindMethodsArgs> = async (
@@ -14,6 +15,7 @@ const AirTemperatures: Resolver<FindMethodsArgs> = async (
   const { AirTemperature, Device } = db
   const conditionsQuery = sensorConditions(args.query)
   const conditionsPeriod = sensorPeriod(args.period)
+  const conditionsValue = sensorValue(args.value)
   var whereLocal = {}
   var conditionsDevice = {}
 
@@ -28,7 +30,7 @@ const AirTemperatures: Resolver<FindMethodsArgs> = async (
 
   return pagination(
     AirTemperature.find({
-      $and: [{ $and: [conditionsQuery, conditionsPeriod] }, conditionsDevice],
+      $and: [{ $and: [conditionsQuery, conditionsPeriod, conditionsValue] }, conditionsDevice],
     }).populate('device'),
     args,
   )
@@ -42,6 +44,7 @@ const RelativeHumidities: Resolver<FindMethodsArgs> = async (
   const { RelativeHumidity, Device } = db
   const conditionsQuery = sensorConditions(args.query)
   const conditionsPeriod = sensorPeriod(args.period)
+  const conditionsValue = sensorValue(args.value)
   var whereLocal = {}
   var conditionsDevice = {}
 
@@ -56,7 +59,7 @@ const RelativeHumidities: Resolver<FindMethodsArgs> = async (
 
   return pagination(
     RelativeHumidity.find({
-      $and: [{ $and: [conditionsQuery, conditionsPeriod] }, conditionsDevice],
+      $and: [{ $and: [conditionsQuery, conditionsPeriod, conditionsValue] }, conditionsDevice],
     }).populate('device'),
     args,
   )
