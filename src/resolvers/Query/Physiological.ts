@@ -16,7 +16,7 @@ const AnimalWeights: Resolver<FindMethodsArgs> = async (
   const conditionsQuery = sensorConditions(args.query)
   console.log('conditionsQuery: ', JSON.stringify(conditionsQuery, null, 4))
   const conditionsPeriod = sensorPeriod(args.period)
-  var conditionsValue = sensorValue(args.value)
+  const conditionsValue = sensorValue(args.value)
   // console.log('conditionsValue: ', JSON.stringify(conditionsValue, null, 4))
   var whereLocal = {}
   var conditionsDevice = {}
