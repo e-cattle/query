@@ -88,8 +88,14 @@ const whereConditions = (
 ): Record<string, any> => {
   if (ids) {
     var str = JSON.stringify(ids)
+    
+    // Condição de não existir o local
+    if(str.length === 2) {
+      str = "[{\"_id\":\"ffffffffffffffffffffffff\"}]"
+    } 
     str = str.replace(/_id/g, 'device')
     ids = JSON.parse(str)
+
     const localRequest = {
       $or: ids,
     }
