@@ -4,7 +4,7 @@ type Query {
   device(_id: ID!): Device!
 
   # MicroClimate
-  AirTemperatures(
+  AirTemperature(
     skip: Int
     limit: Int
     query: SensorWhereInput
@@ -76,7 +76,7 @@ type Query {
     value: SensorValueInput
   ): [Precipitation!]! @auth
 
-  RelativeHumidities(
+  RelativeHumidity(
     skip: Int
     limit: Int
     query: SensorWhereInput
@@ -158,7 +158,7 @@ type Query {
   ): [WindSpeed!]! @auth
 
   # Physiological
-  AnimalWeights(
+  AnimalWeight(
     skip: Int
     limit: Int
     query: SensorWhereInput
@@ -204,7 +204,7 @@ type Query {
   ): [RetalTemperature!]! @auth
 
   # Behavioral
-  Accelerometers(
+  Accelerometer(
     skip: Int
     limit: Int
     query: AccelerometerWhereInput
@@ -222,7 +222,7 @@ type Query {
     value: SensorValueInput
   ): [AnimalSpeed!]! @auth
   
-  Gyroscopes(
+  Gyroscope(
     skip: Int
     limit: Int
     query: GyroscopeWhereInput
@@ -231,7 +231,7 @@ type Query {
     value: GyroscopeValueWhereInput
   ): [Gyroscope!]! @auth
 
-  Magnetometers(
+  Magnetometer(
     skip: Int
     limit: Int
     query: MagnetometerWhereInput
@@ -259,7 +259,7 @@ type Query {
     value: GdopValueWhereInput
   ): [Gdop!]! @auth
 
-  GeographicCoordinates(
+  GeographicCoordinate(
     skip: Int
     limit: Int
     query: GeographicCoordinateWhereInput

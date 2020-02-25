@@ -67,7 +67,7 @@ const Gdop: Resolver<FindMethodsArgs> = async (
   )
 }
 
-const GeographicCoordinates: Resolver<FindMethodsArgs> = async (
+const GeographicCoordinate: Resolver<FindMethodsArgs> = async (
   _,
   args,
   { db },
@@ -100,5 +100,5 @@ const GeographicCoordinates: Resolver<FindMethodsArgs> = async (
 export default {
   GateOpened,
   Gdop,
-  GeographicCoordinates,
+  GeographicCoordinate,
 }

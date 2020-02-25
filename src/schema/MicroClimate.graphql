@@ -4,7 +4,7 @@ scalar Datetime
 type AirTemperature {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   storaged: Datetime

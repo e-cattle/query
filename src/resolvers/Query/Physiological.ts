@@ -7,7 +7,7 @@ import {
   whereConditions
 } from '../../utils'
 
-const AnimalWeights: Resolver<FindMethodsArgs> = async (
+const AnimalWeight: Resolver<FindMethodsArgs> = async (
   _,
   args,
   { db },
@@ -158,7 +158,7 @@ const RetalTemperature: Resolver<FindMethodsArgs> = async (
 }
 
 export default {
-  AnimalWeights,
+  AnimalWeight,
   BodyTemperature,
   HeartRate,
   RespiratoryFrequency,

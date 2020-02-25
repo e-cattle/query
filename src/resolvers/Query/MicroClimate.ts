@@ -7,7 +7,7 @@ import {
   whereConditions
 } from '../../utils'
 
-const AirTemperatures: Resolver<FindMethodsArgs> = async (
+const AirTemperature: Resolver<FindMethodsArgs> = async (
   _,
   args,
   { db },
@@ -239,7 +239,7 @@ const Precipitation: Resolver<FindMethodsArgs> = async (
   )
 }
 
-const RelativeHumidities: Resolver<FindMethodsArgs> = async (
+const RelativeHumidity: Resolver<FindMethodsArgs> = async (
   _,
   args,
   { db },
@@ -501,7 +501,7 @@ const WindSpeed: Resolver<FindMethodsArgs> = async (
 }
 
 export default {
-  AirTemperatures,
+  AirTemperature,
   BlackGlobeTemperature,
   Ch4,
   Co2,
@@ -509,7 +509,7 @@ export default {
   DryBulbTemperature,
   Ph,
   Precipitation,
-  RelativeHumidities,
+  RelativeHumidity,
   SoilMoisture,
   SoilNitrogen,
   SoilTemperature,

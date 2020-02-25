@@ -7,7 +7,7 @@ import {
   sensorValue,
 } from '../../utils'
 
-const Accelerometers: Resolver<FindMethodsArgs> = async (
+const Accelerometer: Resolver<FindMethodsArgs> = async (
   _,
   args,
   { db },
@@ -67,7 +67,7 @@ const AnimalSpeed: Resolver<FindMethodsArgs> = async (
   )
 }
 
-const Gyroscopes: Resolver<FindMethodsArgs> = async (
+const Gyroscope: Resolver<FindMethodsArgs> = async (
   _,
   args,
   { db },
@@ -97,7 +97,7 @@ const Gyroscopes: Resolver<FindMethodsArgs> = async (
   )
 }
 
-const Magnetometers: Resolver<FindMethodsArgs> = async (
+const Magnetometer: Resolver<FindMethodsArgs> = async (
   _,
   args,
   { db },
@@ -128,8 +128,8 @@ const Magnetometers: Resolver<FindMethodsArgs> = async (
 }
 
 export default {
-  Accelerometers,
+  Accelerometer,
   AnimalSpeed,
-  Gyroscopes,
-  Magnetometers
+  Gyroscope,
+  Magnetometer
 }
