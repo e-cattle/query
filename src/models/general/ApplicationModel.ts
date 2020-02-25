@@ -11,7 +11,6 @@ const applicationSchema = new Schema({
     type: String,
     required: true,
     trim: true,
-    unique: true,    
   },
   device: {
     type: String,
@@ -32,9 +31,17 @@ const applicationSchema = new Schema({
     type: String,
     trim: true,
   },
+  created: {
+    type: Date,
+    default: Date.now(),
+  },
+  changed: {
+    type: Date,
+    default: Date.now(),
+  },
 },
 {
-  timestamps: true,
+  useNestedStrict: true,
 },
 )
 export default model<ApplicationDocument>('Application', applicationSchema)
