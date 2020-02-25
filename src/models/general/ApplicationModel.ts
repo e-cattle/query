@@ -30,18 +30,10 @@ const applicationSchema = new Schema({
   picture: {
     type: String,
     trim: true,
-  },
-  created: {
-    type: Date,
-    default: Date.now(),
-  },
-  changed: {
-    type: Date,
-    default: Date.now(),
-  },
+  }
 },
 {
-  useNestedStrict: true,
+  timestamps: true,
 },
 )
 export default model<ApplicationDocument>('Application', applicationSchema)
