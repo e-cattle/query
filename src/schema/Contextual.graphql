@@ -1,6 +1,116 @@
 directive @auth on FIELD_DEFINITION
 scalar Datetime
 
+type GateOpened {
+  _id: ID!
+  device: Device!
+  value: Boolean!
+  date: Datetime
+  resource: String
+  storaged: Datetime
+  syncedAt: String
+}
+
+input GateOpenedValueInput {
+  Eq: Boolean
+  Ne: Boolean
+  In: [Boolean!]
+  Nin: [Boolean!]
+  Lt: Boolean
+  Lte: Boolean
+  Gt: Boolean
+  Gte: Boolean
+}
+
+type Gdop {
+  _id: ID!
+  device: Device!
+  value: [GdopValue!]!
+  date: Datetime
+  resource: String
+  storaged: Datetime
+  syncedAt: String
+}
+
+type GdopValue {
+  _id: ID!
+  hdop: Int
+  vdop: Int
+  pdop: Int
+  tdop: Int
+}
+
+input GdopWhereInput {
+  _idEq: ID
+  _idNe: ID
+  _idIn: [ID!]
+  _idNin: [ID!]
+  dateEq: Datetime
+  dateNe: Datetime
+  dateIn: [Datetime!]
+  dateNin: [Datetime!]
+  dateLt: Datetime
+  dateLte: Datetime
+  dateGt: Datetime
+  dateGte: Datetime
+  resourceEq: String
+  resourceNe: String
+  resourceIn: [String!]
+  resourceNin: [String!]
+  resourceRegex: String
+  resourceOptions: String
+  storageEq: Datetime
+  storageNe: Datetime
+  storageIn: [Datetime!]
+  storageNin: [Datetime!]
+  storageLt: Datetime
+  storageLte: Datetime
+  storageGt: Datetime
+  storageGte: Datetime
+  AND: [SensorWhereInput!]
+  OR: [SensorWhereInput!]
+  NOR: [SensorWhereInput!]
+}
+
+input GdopValueWhereInput {
+  _idEq: ID
+  _idNe: ID
+  _idIn: [ID!]
+  _idNin: [ID!]
+  hdopEq: Int
+  hdopNe: Int
+  hdopIn: [Int!]
+  hdopNin: [Int!]
+  hdopLt: Int
+  hdopLte: Int
+  hdopGt: Int
+  hdopGte: Int
+  vdopEq: Int
+  vdopNe: Int
+  vdopIn: [Int!]
+  vdopNin: [Int!]
+  vdopLt: Int
+  vdopLte: Int
+  vdopGt: Int
+  vdopGte: Int
+  pdopEq: Int
+  pdopNe: Int
+  pdopIn: [Int!]
+  pdopNin: [Int!]
+  pdopLt: Int
+  pdopLte: Int
+  pdopGt: Int
+  pdopGte: Int
+  tdopEq: Int
+  tdopNe: Int
+  tdopIn: [Int!]
+  tdopNin: [Int!]
+  tdopLt: Int
+  tdopLte: Int
+  tdopGt: Int
+  tdopGte: Int
+}
+
 type GeographicCoordinate {
   _id: ID!
   device: Device!

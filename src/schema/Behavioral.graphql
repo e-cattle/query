@@ -81,6 +81,16 @@ input AccelerometerValueWhereInput {
   azGte: Float
 }
 
+type AnimalSpeed {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  storaged: Datetime
+  syncedAt: String
+}
+
 type Gyroscope {
   _id: ID!
   device: Device!

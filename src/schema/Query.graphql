@@ -13,7 +13,68 @@ type Query {
     value: SensorValueInput
   ): [AirTemperature!]! @auth
 
-  Precipitation: [Precipitation]
+  BlackGlobeTemperature(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [BlackGlobeTemperature!]! @auth
+
+  Ch4(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [Ch4!]! @auth
+
+  Co2(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [Co2!]! @auth
+
+  DewPointTemperature(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [DewPointTemperature!]! @auth
+
+  DryBulbTemperature(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [DryBulbTemperature!]! @auth
+
+  Ph(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [Ph!]! @auth
+
+  Precipitation(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [Precipitation!]! @auth
 
   RelativeHumidities(
     skip: Int
@@ -24,6 +85,78 @@ type Query {
     value: SensorValueInput
   ): [RelativeHumidity!]! @auth
 
+  SoilMoisture(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [SoilMoisture!]! @auth
+
+  SoilNitrogen(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [SoilNitrogen!]! @auth
+
+  SoilTemperature(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [SoilTemperature!]! @auth
+
+  SoilWaterPotencial(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [SoilWaterPotencial!]! @auth
+
+  SolarRadiation(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [SolarRadiation!]! @auth
+
+  WaterTemperature(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [WaterTemperature!]! @auth
+
+  WetBulbTemperature(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [WetBulbTemperature!]! @auth
+
+  WindSpeed(
+    skip: Int
+    limit: Int
+    query: WindSpeedWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: WindSpeedValueWhereInput
+  ): [WindSpeed!]! @auth
+
   # Physiological
   AnimalWeights(
     skip: Int
@@ -33,6 +166,42 @@ type Query {
     where: SensorLocal
     value: SensorValueInput
   ): [AnimalWeight!]! @auth
+ 
+  BodyTemperature(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [BodyTemperature!]! @auth
+
+  HeartRate(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [HeartRate!]! @auth
+  
+  RespiratoryFrequency(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [RespiratoryFrequency!]! @auth
+ 
+  RetalTemperature(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [RetalTemperature!]! @auth
 
   # Behavioral
   Accelerometers(
@@ -43,6 +212,15 @@ type Query {
     where: SensorLocal
     value: AccelerometerValueWhereInput
   ): [Accelerometer!]! @auth
+
+  AnimalSpeed(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: SensorValueInput
+  ): [AnimalSpeed!]! @auth
   
   Gyroscopes(
     skip: Int
@@ -63,6 +241,24 @@ type Query {
   ): [Magnetometer!]! @auth
 
   # Contextual
+  GateOpened(
+    skip: Int
+    limit: Int
+    query: SensorWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: GateOpenedValueInput
+  ): [GateOpened!]! @auth
+
+  Gdop(
+    skip: Int
+    limit: Int
+    query: GdopWhereInput
+    period: SensorPeriod
+    where: SensorLocal
+    value: GdopValueWhereInput
+  ): [Gdop!]! @auth
+
   GeographicCoordinates(
     skip: Int
     limit: Int

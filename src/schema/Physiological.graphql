@@ -10,4 +10,41 @@ type AnimalWeight {
   storaged: Datetime
   syncedAt: String
 }
+type BodyTemperature {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  storaged: Datetime
+  syncedAt: String
+}
+type HeartRate {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  storaged: Datetime
+  syncedAt: String
+}
+type RespiratoryFrequency {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  storaged: Datetime
+  syncedAt: String
+}
+type RetalTemperature {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  storaged: Datetime
+  syncedAt: String
+}
+
 

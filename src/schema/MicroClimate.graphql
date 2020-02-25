@@ -11,13 +11,63 @@ type AirTemperature {
   syncedAt: String
 }
 
-type RelativeHumidity {
+type BlackGlobeTemperature {
   _id: ID!
   device: Device!
   value: Int!
   date: String
   resource: String
   storaged: Datetime
+  syncedAt: String
+}
+
+type Ch4 {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  dataStorage: Datetime
+  syncedAt: String
+}
+
+type Co2 {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  dataStorage: Datetime
+  syncedAt: String
+}
+
+type DewPointTemperature {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  dataStorage: Datetime
+  syncedAt: String
+}
+
+type DryBulbTemperature {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  dataStorage: Datetime
+  syncedAt: String
+}
+
+type Ph {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  dataStorage: Datetime
   syncedAt: String
 }
 
@@ -29,4 +79,155 @@ type Precipitation {
   resource: String
   dataStorage: Datetime
   syncedAt: String
+}
+
+type RelativeHumidity {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  dataStorage: Datetime
+  syncedAt: String
+}
+
+type SoilMoisture {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  dataStorage: Datetime
+  syncedAt: String
+}
+
+type SoilNitrogen {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  dataStorage: Datetime
+  syncedAt: String
+}
+
+type SoilTemperature {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  dataStorage: Datetime
+  syncedAt: String
+}
+
+type SoilWaterPotencial {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  dataStorage: Datetime
+  syncedAt: String
+}
+
+type SolarRadiation {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  dataStorage: Datetime
+  syncedAt: String
+}
+
+type WaterTemperature {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  dataStorage: Datetime
+  syncedAt: String
+}
+
+type WetBulbTemperature {
+  _id: ID!
+  device: Device!
+  value: Int!
+  date: Datetime
+  resource: String
+  dataStorage: Datetime
+  syncedAt: String
+}
+
+type WindSpeed {
+  _id: ID!
+  device: Device!
+  value: [WindSpeedValue!]!
+  date: Datetime
+  resource: String
+  storaged: Datetime
+  syncedAt: String
+}
+
+type WindSpeedValue {
+  _id: ID!
+  speed: Int
+  direction: String
+}
+
+input WindSpeedWhereInput {
+  _idEq: ID
+  _idNe: ID
+  _idIn: [ID!]
+  _idNin: [ID!]
+  dateEq: Datetime
+  dateNe: Datetime
+  dateIn: [Datetime!]
+  dateNin: [Datetime!]
+  dateLt: Datetime
+  dateLte: Datetime
+  dateGt: Datetime
+  dateGte: Datetime
+  resourceEq: String
+  resourceNe: String
+  resourceIn: [String!]
+  resourceNin: [String!]
+  resourceRegex: String
+  resourceOptions: String
+  storageEq: Datetime
+  storageNe: Datetime
+  storageIn: [Datetime!]
+  storageNin: [Datetime!]
+  storageLt: Datetime
+  storageLte: Datetime
+  storageGt: Datetime
+  storageGte: Datetime
+  AND: [SensorWhereInput!]
+  OR: [SensorWhereInput!]
+  NOR: [SensorWhereInput!]
+}
+
+input WindSpeedValueWhereInput {
+  _idEq: ID
+  _idNe: ID
+  _idIn: [ID!]
+  _idNin: [ID!]
+  speedEq: Int
+  speedNe: Int
+  speedIn: [Int!]
+  speedNin: [Int!]
+  speedLt: Int
+  speedLte: Int
+  speedGt: Int
+  speedGte: Int
+  directionEq: String
+  directionNe: String
+  directionIn: [String!]
+  directionNin: [String!]
+  directionLt: String
+  directionLte: String
+  directionGt: String
+  directionGte: String
 }

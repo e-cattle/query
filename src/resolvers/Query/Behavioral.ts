@@ -37,6 +37,36 @@ const Accelerometers: Resolver<FindMethodsArgs> = async (
   )
 }
 
+const AnimalSpeed: Resolver<FindMethodsArgs> = async (
+  _,
+  args,
+  { db },
+) => {
+  const { AnimalSpeed, Device } = db
+  const conditionsQuery = sensorConditions(args.query)
+  const conditionsPeriod = sensorPeriod(args.period)
+  const conditionsValue = sensorValue(args.value)
+  // console.log('conditionsValue: ', JSON.stringify(conditionsValue, null, 4))
+  var whereLocal = {}
+  var conditionsDevice = {}
+
+  // Verificando se o campo device.local foi requisitado
+  if (args.where) {
+    whereLocal = { local: args.where['local'] }
+    // Verificando os IDs dos devices da localizacao solicitada
+    const devices = await Device.find(whereLocal).select('_id')
+    // Montando a query com os Ids do device.local requisitado
+    conditionsDevice = whereConditions(devices)
+  }
+
+  return pagination(
+    AnimalSpeed.find({
+      $and: [{ $and: [conditionsQuery, conditionsPeriod, conditionsValue] }, conditionsDevice],
+    }).populate('device'),
+    args,
+  )
+}
+
 const Gyroscopes: Resolver<FindMethodsArgs> = async (
   _,
   args,
@@ -99,6 +129,7 @@ const Magnetometers: Resolver<FindMethodsArgs> = async (
 
 export default {
   Accelerometers,
+  AnimalSpeed,
   Gyroscopes,
   Magnetometers
 }

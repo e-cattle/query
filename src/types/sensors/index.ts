@@ -1,5 +1,7 @@
 export * from './AccelerometerTypes'
+export * from './GdopTypes'
 export * from './GeographicCoordinateTypes'
 export * from './GyroscopeTypes'
 export * from './MagnetometerTypes'
 export * from './sensorTypes'
+export * from './WindSpeedTypes'
