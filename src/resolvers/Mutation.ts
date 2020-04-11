@@ -1,13 +1,17 @@
 import { Types } from 'mongoose'
 import {
-  Resolver, BodyTemperatureCreateArgs
+  Resolver, BodyTemperatureCreateArgs, MutationType
 } from '../types'
 
-const createBodyTemperature: Resolver<BodyTemperatureCreateArgs> = async (_, args, { db }) => {
+const createBodyTemperature: Resolver<BodyTemperatureCreateArgs> = async (_, args, { db, pubsub }) => {
   const { BodyTemperature } = db
   const { data } = args
-  const bodyTemperature = new BodyTemperature(data)
-  return bodyTemperature.save()
+  const bodyTemperature = await new BodyTemperature(data).save()
+  pubsub.publish('BODYTEMPERATURE_CREATED', {
+    mutation: MutationType.CREATED,
+    node: bodyTemperature
+  })
+  return bodyTemperature
 }
 
 export default {
