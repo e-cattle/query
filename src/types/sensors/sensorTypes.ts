@@ -1,5 +1,6 @@
 import { Document, Types } from 'mongoose'
 import { Device } from '../general/deviceTypes'
+import { OmitId } from '../'
 
 export interface Sensor {
   _id: Types.ObjectId
@@ -9,6 +10,15 @@ export interface Sensor {
   resource: string
   storaged: string
 }
+
+// export interface BodyTemperature {
+//   _id: Types.ObjectId
+//   device: Device | Types.ObjectId
+//   value: number
+//   date: string
+//   resource: string
+//   storaged: string
+// }
 
 // MicroClimate
 export interface AirTemperatureDocument extends Sensor, Document {
@@ -87,6 +97,11 @@ export interface AnimalSpeedDocument extends Sensor, Document {
 export interface BodyTemperatureDocument extends Sensor, Document {
   _id: Types.ObjectId
 }
+
+export interface BodyTemperatureCreateArgs {
+  data: OmitId<Sensor>
+}
+
 export interface HeartRateDocument extends Sensor, Document {
   _id: Types.ObjectId
 }

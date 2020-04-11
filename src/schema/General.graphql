@@ -1,3 +1,4 @@
+# Query
 enum SensorOrderByInput {
   value_ASC
   value_DESC
@@ -65,4 +66,27 @@ input SensorWhereInput {
   AND: [SensorWhereInput!]
   OR: [SensorWhereInput!]
   NOR: [SensorWhereInput!]
+}
+
+input SensorCreateInput {
+  valueEq: Int
+  dateEq: Datetime
+  resourceEq: String
+  storageEq: Datetime
+}
+
+#Subscription
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+input BodyTemperatureSubscriptionWhereInput {
+  mutationIn: [MutationType!]!
+}
+
+type BodyTemperatureSubscriptionPayload {
+  mutation: MutationType!
+  node: BodyTemperature!
 }

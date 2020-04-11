@@ -19,6 +19,14 @@ type BodyTemperature {
   storaged: Datetime
   syncedAt: String
 }
+
+input BodyTemperatureCreateInput {
+  value: Int!
+  date: Datetime
+  resource: String
+  storaged: Datetime
+  syncedAt: String
+}
 type HeartRate {
   _id: ID!
   device: Device!
