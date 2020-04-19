@@ -3,11 +3,11 @@ import { Schema, model } from 'mongoose'
 import { BodyTemperatureDocument } from '../../types'
 
 const bodyTemperatureSchema = new Schema({
-  // device: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'Device',
-  //   required: true
-  // },
+  device: {
+    type: Schema.Types.ObjectId,
+    ref: 'Device',
+    required: true
+  },
   value: {
     type: Number,
     min: 20,

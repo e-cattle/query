@@ -74,19 +74,3 @@ input SensorCreateInput {
   resourceEq: String
   storageEq: Datetime
 }
-
-#Subscription
-enum MutationType {
-  CREATED
-  UPDATED
-  DELETED
-}
-
-input BodyTemperatureSubscriptionWhereInput {
-  mutationIn: [MutationType!]!
-}
-
-type BodyTemperatureSubscriptionPayload {
-  mutation: MutationType!
-  node: BodyTemperature!
-}
