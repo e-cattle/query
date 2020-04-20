@@ -27,5 +27,3 @@ export interface FindMethodsArgs {
   where: Record<string, any>
   value: Record<string, any>
 }
-
-export type OmitId<T> = Omit<T, '_id'>

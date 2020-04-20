@@ -20,31 +20,10 @@ type BodyTemperature {
   syncedAt: String
 }
 
-#Subscription
-# enum MutationType {
-#   CREATED
-#   UPDATED
-#   DELETED
-# }
-
-# input BodyTemperatureSubscriptionWhereInput {
-#   mutationIn: [MutationType!]!
-# }
-
 type BodyTemperatureSubscriptionPayload {
-  # mutation: MutationType!
   node: BodyTemperature!
 }
 
-
-
-input BodyTemperatureCreateInput {
-  value: Int!
-  date: Datetime
-  resource: String
-  storaged: Datetime
-  syncedAt: String
-}
 type HeartRate {
   _id: ID!
   device: Device!

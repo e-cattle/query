@@ -7,20 +7,20 @@ export type Resolver<TArgs, TSource = {}> = GraphQLFieldResolver<
   TArgs
 >
 
-export enum MutationType {
-  CREATED = 'CREATED',
-  UPDATED = 'UPDATED',
-  DELETED = 'DELETED',
-}
+// export enum MutationType {
+//   CREATED = 'CREATED',
+//   UPDATED = 'UPDATED',
+//   DELETED = 'DELETED',
+// }
 
 export interface SubscriptionArgs {
-  where: {
-    mutationIn: MutationType[]
-  }
+//   where: {
+//     mutationIn: MutationType[]
+//   }
 }
 
 export interface SubscriptionPayload<T> {
-  mutation: MutationType
+  // mutation: MutationType
   node: T
 }
 

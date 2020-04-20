@@ -5,6 +5,5 @@
 #import * from 'General.graphql'
 #import * from 'MicroClimate.graphql'
 #import * from 'Physiological.graphql'
-#import Mutation from 'Mutation.graphql'
 #import Query from 'Query.graphql'
 #import Subscription from 'Subscription.graphql'

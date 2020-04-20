@@ -67,10 +67,3 @@ input SensorWhereInput {
   OR: [SensorWhereInput!]
   NOR: [SensorWhereInput!]
 }
-
-input SensorCreateInput {
-  valueEq: Int
-  dateEq: Datetime
-  resourceEq: String
-  storageEq: Datetime
-}
