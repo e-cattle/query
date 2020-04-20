@@ -1,7 +1,7 @@
 import { RedisPubSub } from 'graphql-redis-subscriptions'
 import Redis, { RedisOptions } from 'ioredis'
 
-const { REDIS_HOST = 'ecattle-redis', REDIS_PORT = 6379 } = process.env
+const { REDIS_HOST = 'localhost', REDIS_PORT = 6379 } = process.env
 const options: RedisOptions = {
   host: REDIS_HOST,
   port: REDIS_PORT as number,
