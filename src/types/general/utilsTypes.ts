@@ -15,8 +15,7 @@ import { Models } from '..'
 
 export interface TokenPayload {
   date: string
-  id: Types.ObjectId
-  name: string
+  code: string
 }
 
 export interface FindMethodsArgs {
