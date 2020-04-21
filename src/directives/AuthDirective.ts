@@ -29,16 +29,16 @@ class AuthDirective extends SchemaDirectiveVisitor {
       try {
         const token = Authorization.replace('Bearer ', '')
         const { Application } = ctx.db
-        const { date, id, name } = verify(
+        const { date, code } = verify(
           token,
           process.env.APP_PK,
         ) as TokenPayload
-        const app = await Application.findById({ _id: id})
+        const app = await Application.findOne( { code } )
         if (!app || !app.enable) {
           throw new CustomError('Unauthorized', 'UNAUTHORIZED_ERROR', {
           detail: 'Token not valid',})
         }
-        const authApp = { date, id, name }
+        const authApp = { date, code }
         ctx = {
           ...ctx,
           ...authApp,
