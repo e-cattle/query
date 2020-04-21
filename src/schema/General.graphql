@@ -28,6 +28,15 @@ input SensorValueInput {
   Gte: Int
 }
 
+input SensorSubscribeValueInput {
+  Eq: Int
+  Ne: Int
+  Lt: Int
+  Lte: Int
+  Gt: Int
+  Gte: Int
+}
+
 input SensorWhereInput {
   _idEq: ID
   _idNe: ID

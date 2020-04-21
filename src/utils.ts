@@ -28,6 +28,15 @@ const operators = [
   { name: 'Options', op: '$options' },
 ]
 
+const operatorsSubscribeValue = [
+  { name: 'Eq', op: '==' },
+  { name: 'Ne', op: '!=' },
+  { name: 'Gt', op: '>' },
+  { name: 'Gte', op: '>=' },
+  { name: 'Lt', op: '<' },
+  { name: 'Lte', op: '<=' },
+]
+
 const idFields = ['_id']
 
 const sensorConditions = (
@@ -137,11 +146,26 @@ const sensorValue = (
     }
   }, {})
 
+const subscribeValueConditions = (
+  value: Record<string, any> = {},
+): Record<string, any> =>
+  Object.keys(value).reduce((conditions, valueKey) => {
+    const operator = operatorsSubscribeValue.find(({ name }) =>
+      new RegExp(`${name}$`).test(valueKey),
+    )
+    const operation = [operator.op] + ' ' + value[valueKey]
+    // console.log('fieldValue: ', JSON.stringify(fieldValue, null, 4))
+    return {
+      operation,
+    }
+  }, {})
+
 export {
   sensorConditions,
   whereConditions,
   sensorPeriod,
   sensorValue,
+  subscribeValueConditions,
   isMongoId,
   pagination,
 }

@@ -1,3 +1,5 @@
 type Subscription {
-  BodyTemperature: BodyTemperatureSubscriptionPayload!
+  BodyTemperature(
+    value: SensorSubscribeValueInput
+  ): BodyTemperatureSubscriptionPayload!
 }

@@ -1,25 +1,38 @@
-import { Resolver, Sensor, SubscriptionResolver, SubscriptionArgs, SubscriptionPayload } from '../../types'
+import {
+  Resolver,
+  Sensor,
+  SubscriptionResolver,
+  SubscriptionArgs,
+  SubscriptionPayload,
+} from '../../types'
 import { withFilter } from 'graphql-yoga'
+import { subscribeValueConditions } from '../../utils'
 
-const bodyTemperatureSubscribeFn: Resolver<SubscriptionArgs> = (_, args, ctx) => {
-  // const { mutationIn } = args.where
+const bodyTemperatureSubscribeFn: Resolver<SubscriptionArgs> = (
+  _,
+  args,
+  ctx,
+) => {
   const { pubsub } = ctx
-  // const channels = mutationIn.map(m => `body-temperature_${m}`)
-  const channels = "body-temperature_CREATED"
+  const channels = 'body-temperature_CREATED'
   return pubsub.asyncIterator(channels)
 }
 
-const bodyTemperatureFilternFn: Resolver<SubscriptionArgs, SubscriptionPayload<Sensor>> = (payload, args, ctx) => {
-  return payload.node.value > 36
+const bodyTemperatureFilternFn: Resolver<
+  SubscriptionArgs,
+  SubscriptionPayload<Sensor>
+> = (payload, args, ctx) => {
+  const { operation } = subscribeValueConditions(args.value)
+  return eval(payload.node.value + operation)
 }
 
-const  BodyTemperature: SubscriptionResolver<Sensor> = {
+const BodyTemperature: SubscriptionResolver<Sensor> = {
   subscribe: withFilter(bodyTemperatureSubscribeFn, bodyTemperatureFilternFn),
   resolve: payload => {
     return payload
-  }
+  },
 }
 
 export default {
-   BodyTemperature,
+  BodyTemperature,
 }
