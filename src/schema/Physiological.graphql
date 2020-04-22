@@ -52,4 +52,6 @@ type RetalTemperature {
   syncedAt: String
 }
 
-
+type RetalTemperatureSubscriptionPayload {
+  node: RetalTemperature!
+}

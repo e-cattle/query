@@ -33,6 +33,32 @@ const BodyTemperature: SubscriptionResolver<Sensor> = {
   },
 }
 
+const retalTemperatureSubscribeFn: Resolver<SubscriptionArgs> = (
+  _,
+  args,
+  ctx,
+) => {
+  const { pubsub } = ctx
+  const channels = 'retal-temperature_CREATED'
+  return pubsub.asyncIterator(channels)
+}
+
+const retalTemperatureFilternFn: Resolver<
+  SubscriptionArgs,
+  SubscriptionPayload<Sensor>
+> = (payload, args, ctx) => {
+  const { operation } = subscribeValueConditions(args.value)
+  return eval(payload.node.value + operation)
+}
+
+const RetalTemperature: SubscriptionResolver<Sensor> = {
+  subscribe: withFilter(retalTemperatureSubscribeFn, retalTemperatureFilternFn),
+  resolve: payload => {
+    return payload
+  },
+}
+
 export default {
   BodyTemperature,
+  RetalTemperature,
 }

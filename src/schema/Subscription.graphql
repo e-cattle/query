@@ -1,5 +1,10 @@
 type Subscription {
   BodyTemperature(
     value: SensorSubscribeValueInput
-  ): BodyTemperatureSubscriptionPayload!
+  ): BodyTemperatureSubscriptionPayload! @auth
+
+  RetalTemperature(
+    value: SensorSubscribeValueInput
+  ): RetalTemperatureSubscriptionPayload! @auth
+
 }
