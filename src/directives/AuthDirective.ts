@@ -28,10 +28,11 @@ class AuthDirective extends SchemaDirectiveVisitor {
       }
       try {
         const token = Authorization.replace('Bearer ', '')
+        const { APP_PK = 'w3oJxx8RByKHmK5u7taIn70Cp1Ar8hPCX9ZweHVIjBaj6V4otCv6ygavUq4RPfA3' } = process.env
         const { Application } = ctx.db
         const { date, code } = verify(
           token,
-          process.env.APP_PK,
+          APP_PK,
         ) as TokenPayload
         const app = await Application.findOne( { code } )
         if (!app || !app.enable) {

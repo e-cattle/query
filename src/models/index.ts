@@ -3,8 +3,7 @@ import { resolve } from 'path'
 import { readdirSync } from 'fs'
 import { Models } from '../types'
 
-const MONGO_URI =
-  process.env.MONGO_URI || 'mongodb://localhost:27017/e-cattle?authSource=admin'
+const { MONGO_URI = 'mongodb://ecattle-mongo:27017/e-cattle?authSource=admin'} = process.env
 
 const connect = (): Promise<typeof mongoose> =>
   mongoose.connect(MONGO_URI, {
