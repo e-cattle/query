@@ -1,0 +1,4 @@
+{
+  "db": "mongodb://ecattle-mongo:27017/e-cattle",
+  "redis": "ecattle-redis"
+}
