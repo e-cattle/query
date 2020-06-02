@@ -15,7 +15,7 @@ environment:
 
 apps:
   node:
-    command: env SNAP_DATA=$SNAP_DATA $SNAP/node_modules/sucrase/bin/sucrase-node $SNAP/src/index.ts
+    command: env NODE_ENV='production' env SNAP_DATA=$SNAP_DATA $SNAP/node_modules/sucrase/bin/sucrase-node $SNAP/src/index.ts
     plugs: [home, network, network-bind, tokens]
     daemon: simple
     restart-condition: never
