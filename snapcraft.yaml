@@ -1,5 +1,5 @@
 name: bigboxx-query
-base: core20
+base: core18
 version: git
 summary: Query module API of IoT middleware from e-Cattle platform for livestock farms
 description: |
