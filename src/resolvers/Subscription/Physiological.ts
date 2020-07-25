@@ -8,6 +8,31 @@ import {
 import { withFilter } from 'graphql-yoga'
 import { subscribeValueConditions } from '../../utils'
 
+const animalWeightSubscribeFn: Resolver<SubscriptionArgs> = (
+  _,
+  args,
+  ctx,
+) => {
+  const { pubsub } = ctx
+  const channels = 'animal-weight_CREATED'
+  return pubsub.asyncIterator(channels)
+}
+
+const animalWeightFilternFn: Resolver<
+  SubscriptionArgs,
+  SubscriptionPayload<Sensor>
+> = (payload, args, ctx) => {
+  const { operation } = subscribeValueConditions(args.value)
+  return eval(payload.node.value + operation)
+}
+
+const AnimalWeight: SubscriptionResolver<Sensor> = {
+  subscribe: withFilter(animalWeightSubscribeFn, animalWeightFilternFn),
+  resolve: payload => {
+    return payload
+  },
+}
+
 const bodyTemperatureSubscribeFn: Resolver<SubscriptionArgs> = (
   _,
   args,
@@ -59,6 +84,7 @@ const RetalTemperature: SubscriptionResolver<Sensor> = {
 }
 
 export default {
+  AnimalWeight,
   BodyTemperature,
   RetalTemperature,
 }

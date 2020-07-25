@@ -10,6 +10,11 @@ type AnimalWeight {
   storaged: Datetime
   syncedAt: String
 }
+
+type AnimalWeightSubscriptionPayload {
+  node: AnimalWeight!
+}
+
 type BodyTemperature {
   _id: ID!
   device: Device!
