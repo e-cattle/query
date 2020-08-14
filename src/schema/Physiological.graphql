@@ -4,7 +4,7 @@ scalar Datetime
 type AnimalWeight {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   storaged: Datetime
@@ -18,7 +18,7 @@ type AnimalWeightSubscriptionPayload {
 type BodyTemperature {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   storaged: Datetime
@@ -32,7 +32,7 @@ type BodyTemperatureSubscriptionPayload {
 type HeartRate {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   storaged: Datetime
@@ -41,7 +41,7 @@ type HeartRate {
 type RespiratoryFrequency {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   storaged: Datetime
@@ -50,7 +50,7 @@ type RespiratoryFrequency {
 type RetalTemperature {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   storaged: Datetime

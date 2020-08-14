@@ -84,7 +84,7 @@ input AccelerometerValueWhereInput {
 type AnimalSpeed {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   storaged: Datetime

@@ -34,10 +34,10 @@ type Gdop {
 
 type GdopValue {
   _id: ID!
-  hdop: Int
-  vdop: Int
-  pdop: Int
-  tdop: Int
+  hdop: Float
+  vdop: Float
+  pdop: Float
+  tdop: Float
 }
 
 input GdopWhereInput {
@@ -77,38 +77,38 @@ input GdopValueWhereInput {
   _idNe: ID
   _idIn: [ID!]
   _idNin: [ID!]
-  hdopEq: Int
-  hdopNe: Int
-  hdopIn: [Int!]
-  hdopNin: [Int!]
-  hdopLt: Int
-  hdopLte: Int
-  hdopGt: Int
-  hdopGte: Int
-  vdopEq: Int
-  vdopNe: Int
-  vdopIn: [Int!]
-  vdopNin: [Int!]
-  vdopLt: Int
-  vdopLte: Int
-  vdopGt: Int
-  vdopGte: Int
-  pdopEq: Int
-  pdopNe: Int
-  pdopIn: [Int!]
-  pdopNin: [Int!]
-  pdopLt: Int
-  pdopLte: Int
-  pdopGt: Int
-  pdopGte: Int
-  tdopEq: Int
-  tdopNe: Int
-  tdopIn: [Int!]
-  tdopNin: [Int!]
-  tdopLt: Int
-  tdopLte: Int
-  tdopGt: Int
-  tdopGte: Int
+  hdopEq: Float
+  hdopNe: Float
+  hdopIn: [Float!]
+  hdopNin: [Float!]
+  hdopLt: Float
+  hdopLte: Float
+  hdopGt: Float
+  hdopGte: Float
+  vdopEq: Float
+  vdopNe: Float
+  vdopIn: [Float!]
+  vdopNin: [Float!]
+  vdopLt: Float
+  vdopLte: Float
+  vdopGt: Float
+  vdopGte: Float
+  pdopEq: Float
+  pdopNe: Float
+  pdopIn: [Float!]
+  pdopNin: [Float!]
+  pdopLt: Float
+  pdopLte: Float
+  pdopGt: Float
+  pdopGte: Float
+  tdopEq: Float
+  tdopNe: Float
+  tdopIn: [Float!]
+  tdopNin: [Float!]
+  tdopLt: Float
+  tdopLte: Float
+  tdopGt: Float
+  tdopGte: Float
 }
 
 type GeographicCoordinate {

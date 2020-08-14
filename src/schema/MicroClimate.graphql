@@ -14,7 +14,7 @@ type AirTemperature {
 type BlackGlobeTemperature {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: String
   resource: String
   storaged: Datetime
@@ -24,7 +24,7 @@ type BlackGlobeTemperature {
 type Ch4 {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   dataStorage: Datetime
@@ -34,7 +34,7 @@ type Ch4 {
 type Co2 {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   dataStorage: Datetime
@@ -44,7 +44,7 @@ type Co2 {
 type DewPointTemperature {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   dataStorage: Datetime
@@ -54,7 +54,7 @@ type DewPointTemperature {
 type DryBulbTemperature {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   dataStorage: Datetime
@@ -64,7 +64,7 @@ type DryBulbTemperature {
 type Ph {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   dataStorage: Datetime
@@ -74,7 +74,7 @@ type Ph {
 type Precipitation {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   dataStorage: Datetime
@@ -84,7 +84,7 @@ type Precipitation {
 type RelativeHumidity {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   dataStorage: Datetime
@@ -94,7 +94,7 @@ type RelativeHumidity {
 type SoilMoisture {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   dataStorage: Datetime
@@ -104,7 +104,7 @@ type SoilMoisture {
 type SoilNitrogen {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   dataStorage: Datetime
@@ -114,7 +114,7 @@ type SoilNitrogen {
 type SoilTemperature {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   dataStorage: Datetime
@@ -124,7 +124,7 @@ type SoilTemperature {
 type SoilWaterPotencial {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   dataStorage: Datetime
@@ -134,7 +134,7 @@ type SoilWaterPotencial {
 type SolarRadiation {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   dataStorage: Datetime
@@ -144,7 +144,7 @@ type SolarRadiation {
 type WaterTemperature {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   dataStorage: Datetime
@@ -154,7 +154,7 @@ type WaterTemperature {
 type WetBulbTemperature {
   _id: ID!
   device: Device!
-  value: Int!
+  value: Float!
   date: Datetime
   resource: String
   dataStorage: Datetime
@@ -173,7 +173,7 @@ type WindSpeed {
 
 type WindSpeedValue {
   _id: ID!
-  speed: Int
+  speed: Float
   direction: String
 }
 
@@ -214,14 +214,14 @@ input WindSpeedValueWhereInput {
   _idNe: ID
   _idIn: [ID!]
   _idNin: [ID!]
-  speedEq: Int
-  speedNe: Int
-  speedIn: [Int!]
-  speedNin: [Int!]
-  speedLt: Int
-  speedLte: Int
-  speedGt: Int
-  speedGte: Int
+  speedEq: Float
+  speedNe: Float
+  speedIn: [Float!]
+  speedNin: [Float!]
+  speedLt: Float
+  speedLte: Float
+  speedGt: Float
+  speedGte: Float
   directionEq: String
   directionNe: String
   directionIn: [String!]

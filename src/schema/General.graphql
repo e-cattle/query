@@ -18,23 +18,23 @@ input SensorLocal {
 }
 
 input SensorValueInput {
-  Eq: Int
-  Ne: Int
-  In: [Int!]
-  Nin: [Int!]
-  Lt: Int
-  Lte: Int
-  Gt: Int
-  Gte: Int
+  Eq: Float
+  Ne: Float
+  In: [Float!]
+  Nin: [Float!]
+  Lt: Float
+  Lte: Float
+  Gt: Float
+  Gte: Float
 }
 
 input SensorSubscribeValueInput {
-  Eq: Int
-  Ne: Int
-  Lt: Int
-  Lte: Int
-  Gt: Int
-  Gte: Int
+  Eq: Float
+  Ne: Float
+  Lt: Float
+  Lte: Float
+  Gt: Float
+  Gte: Float
 }
 
 input SensorWhereInput {
@@ -42,14 +42,14 @@ input SensorWhereInput {
   _idNe: ID
   _idIn: [ID!]
   _idNin: [ID!]
-  valueEq: Int
-  valueNe: Int
-  valueIn: [Int!]
-  valueNin: [Int!]
-  valueLt: Int
-  valueLte: Int
-  valueGt: Int
-  valueGte: Int
+  valueEq: Float
+  valueNe: Float
+  valueIn: [Float!]
+  valueNin: [Float!]
+  valueLt: Float
+  valueLte: Float
+  valueGt: Float
+  valueGte: Float
   dateEq: Datetime
   dateNe: Datetime
   dateIn: [Datetime!]
